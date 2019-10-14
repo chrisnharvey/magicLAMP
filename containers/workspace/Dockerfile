@@ -31,5 +31,5 @@ ADD composer/composer7.4 /usr/bin/composer7.4
 
 RUN chmod +x /usr/bin/composer*
 
-ADD bash.bashrc /root/bash.bashrc
-RUN cat /root/bash.bashrc >> /etc/bash.bashrc
+ADD bash.bashrc /etc/magicLAMP
+RUN echo "cat /etc/magicLAMP" >> /etc/bash.bashrc
