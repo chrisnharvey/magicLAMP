@@ -1,0 +1,170 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+
+    volumes:
+      - ${PROJECTS_DIR}:/projects
+      - ./conf/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
+
+    ports:
+      - 80:80
+
+    networks:
+      app_net:
+        ipv4_address: 172.16.200.10
+
+  mysql:
+    image: mariadb:10.3-bionic
+
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    
+    command:
+     'mysqld --innodb-flush-method=fsync'
+
+    ports:
+      - 3306:3306
+
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+
+  workspace:
+    build:
+      context: ./containers/workspace
+
+    volumes:
+      - ${PROJECTS_DIR}:/projects
+
+    tty: true
+
+    working_dir: /projects
+
+    network_mode: host
+
+  dnsmasq:
+    image: jpillora/dnsmasq
+
+    volumes:
+        - ./conf/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
+
+    ports:
+      - 53:53/udp
+      - 5380:8080
+
+    restart: always
+
+    networks:
+      app_net:
+        ipv4_address: 172.16.200.100
+
+  php56:
+      build:
+        context: ./containers/php56
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.56
+
+      dns: 172.16.200.100
+
+  php70:
+      build:
+        context: ./containers/php70
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.70
+
+      dns: 172.16.200.100
+
+  php71:
+      build:
+        context: ./containers/php71
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.71
+
+      dns: 172.16.200.100
+
+  php72:
+      build:
+        context: ./containers/php72
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.72
+
+      dns: 172.16.200.100
+
+  php73:
+      build:
+        context: ./containers/php73
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.73
+
+      dns: 172.16.200.100
+
+  php74:
+      build:
+        context: ./containers/php74
+
+      volumes:
+        - ${PROJECTS_DIR}:/projects
+
+      working_dir: /projects
+
+      user: ${USER_UID}:${USER_GID}
+
+      networks:
+        app_net:
+          ipv4_address: 172.16.200.74
+
+      dns: 172.16.200.100
+
+networks:
+  app_net:
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      config:
+        - subnet: 172.16.200.0/24
