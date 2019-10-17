@@ -13,7 +13,7 @@ services:
 
     networks:
       app_net:
-        ipv4_address: 172.16.200.10
+        ipv4_address: 10.0.10.10
 
   mysql:
     image: mariadb:10.3-bionic
@@ -24,11 +24,12 @@ services:
     command:
      'mysqld --innodb-flush-method=fsync'
 
-    ports:
-      - 3306:3306
-
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.20
 
   workspace:
     build:
@@ -59,7 +60,7 @@ services:
 
     networks:
       app_net:
-        ipv4_address: 172.16.200.100
+        ipv4_address: 10.0.10.53
 
   php56:
       build:
@@ -74,9 +75,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.56
+          ipv4_address: 10.0.10.56
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
   php70:
       build:
@@ -91,9 +92,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.70
+          ipv4_address: 10.0.10.70
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
   php71:
       build:
@@ -108,9 +109,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.71
+          ipv4_address: 10.0.10.71
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
   php72:
       build:
@@ -125,9 +126,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.72
+          ipv4_address: 10.0.10.72
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
   php73:
       build:
@@ -142,9 +143,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.73
+          ipv4_address: 10.0.10.73
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
   php74:
       build:
@@ -159,9 +160,9 @@ services:
 
       networks:
         app_net:
-          ipv4_address: 172.16.200.74
+          ipv4_address: 10.0.10.74
 
-      dns: 172.16.200.100
+      dns: 10.0.10.53
 
 networks:
   app_net:
@@ -169,4 +170,4 @@ networks:
       com.docker.network.enable_ipv6: "false"
     ipam:
       config:
-        - subnet: 172.16.200.0/24
+        - subnet: 10.0.10.0/24
