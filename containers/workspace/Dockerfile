@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl bzip2 chromium-browser wget git git-lfs ssh curl sudo nano software-properties-common fish zsh
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl unzip bzip2 chromium-browser wget git git-lfs ssh curl sudo nano software-properties-common fish zsh
 
 RUN useradd magic -m -s /bin/bash 
 RUN echo "magic ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
