@@ -8,5 +8,5 @@ update-alternatives --set phar.phar "/usr/bin/phar.phar${DEFAULT_PHP_VERSION}"
 update-alternatives --set phpize "/usr/bin/phpize${DEFAULT_PHP_VERSION}"
 update-alternatives --set php-config "/usr/bin/php-config${DEFAULT_PHP_VERSION}"
 
-git config --global user.name $GIT_NAME
-git config --global user.email $GIT_EMAIL
+git config --global user.name "${GIT_NAME}"
+git config --global user.email "${GIT_EMAIL}"
