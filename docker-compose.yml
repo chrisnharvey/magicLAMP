@@ -27,6 +27,9 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
 
+    ports:
+      - 3306:3306
+
     networks:
       app_net:
         ipv4_address: 10.0.10.20
