@@ -65,6 +65,15 @@ services:
       app_net:
         ipv4_address: 10.0.10.53
 
+  dnsmasq_internal:
+    image: jpillora/dnsmasq
+
+    volumes:
+        - ./conf/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.2
+
   php56:
       build:
         context: ./containers/php56
