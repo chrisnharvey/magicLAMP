@@ -89,7 +89,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.56
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
   php70:
       build:
@@ -106,7 +106,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.70
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
   php71:
       build:
@@ -123,7 +123,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.71
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
   php72:
       build:
@@ -140,7 +140,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.72
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
   php73:
       build:
@@ -157,7 +157,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.73
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
   php74:
       build:
@@ -174,7 +174,7 @@ services:
         app_net:
           ipv4_address: 10.0.10.74
 
-      dns: 10.0.10.53
+      dns: 10.0.10.2
 
 networks:
   app_net:
