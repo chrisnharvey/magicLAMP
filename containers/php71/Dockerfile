@@ -12,4 +12,4 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip
 
 RUN pecl install imagick
 
-RUN docker-php-ext-enable imagick
+RUN docker-php-ext-enable imagick opcache
