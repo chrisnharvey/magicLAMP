@@ -74,6 +74,17 @@ services:
       app_net:
         ipv4_address: 10.0.10.2
 
+  redis:
+    image: redis:5.0
+
+    ports:
+      - 6379:6379
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.21
+
+
   php56:
       build:
         context: ./containers/php56
