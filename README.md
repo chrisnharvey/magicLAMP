@@ -29,9 +29,10 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 ```
 git clone https://github.com/chrisnharvey/magicLAMP
 cd magicLAMP
+cp .env.example .env
 ```
 
-Now modify the ```.env``` file
+Now modify the ```.env``` file to suit your needs.
 
 ```
 docker-compose up -d
