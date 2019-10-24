@@ -38,6 +38,8 @@ Now modify the ```.env``` file to suit your needs.
 docker-compose up -d
 ```
 
+Now change your DNS server on your host machine to 127.0.0.1.
+
 ## Updates
 
 ```
