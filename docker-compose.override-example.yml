@@ -1,0 +1,4 @@
+services:
+  workspace:
+    network_mode: host
+    dns: 10.0.10.53
