@@ -48,3 +48,23 @@ git pull
 docker-compose build --no-cache
 docker-compose up -d
 ```
+
+## DNS records
+
+The following DNS records are resolved automatically:
+
+- mysql.local
+- redis.local
+- postgres.local
+- pgadmin.local
+
+Your projects will be automatically resolved to their respective PHP version as follows:
+
+| URL                 | PHP Verson | Root Directory                  |
+| ------------------- | ---------- | ------------------------------- |
+| projectname.local56 | 5.6        | PROJECTS_DIR/projectname/public |
+| projectname.local70 | 7.0        | PROJECTS_DIR/projectname/public |
+| projectname.local71 | 7.1        | PROJECTS_DIR/projectname/public |
+| projectname.local72 | 7.2        | PROJECTS_DIR/projectname/public |
+| projectname.local73 | 7.3        | PROJECTS_DIR/projectname/public |
+| projectname.local74 | 7.4        | PROJECTS_DIR/projectname/public |
