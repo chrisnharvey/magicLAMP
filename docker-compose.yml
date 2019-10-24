@@ -15,6 +15,32 @@ services:
       app_net:
         ipv4_address: 10.0.10.10
 
+  postgres:
+    image: postgres:12
+
+    ports:
+      - 5432:5432
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.15
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.16
+
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+
+    environment:
+      - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}"
+      - "PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}"
+
+    dns: 10.0.10.2
+
   mysql:
     image: mariadb:10.3-bionic
 
