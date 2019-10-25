@@ -17,6 +17,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] Workspace container with pre-installed dev tools
 - [x] NodeJS 10.x
 - [x] MySQL
+- [x] phpMyAdmin
 - [x] PostgreSQL
 - [x] pgAdmin4
 - [x] Redis

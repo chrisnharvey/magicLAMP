@@ -60,6 +60,20 @@ services:
       app_net:
         ipv4_address: 10.0.10.20
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.22
+
+    environment:
+      - PMA_HOST=10.0.10.20
+      - PMA_USER=root
+      - PMA_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=gg
+
+
   workspace:
     build:
       context: ./containers/workspace
