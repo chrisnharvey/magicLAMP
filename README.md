@@ -54,8 +54,9 @@ docker-compose up -d
 
 The following DNS records are resolved automatically:
 
-- mysql.local
 - redis.local
+- mysql.local
+- phpmyadmin.local
 - postgres.local
 - pgadmin.local
 
