@@ -1,5 +1,9 @@
 # magicLAMP
 
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fchrisnharvey%2FmagicLAMP%2Fbadge&style=flat-square)](https://github.com/chrisnharvey/magicLAMP/actions)
+[![Author](http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=flat-square)](https://twitter.com/chrisnharvey)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 magicLAMP is a simple docker setup that provides a modern LEMP stack based on official upstream containers.
 
 ## Goals of this project
