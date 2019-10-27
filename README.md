@@ -58,20 +58,20 @@ docker-compose up -d
 
 The following DNS records are resolved automatically:
 
-- redis.local
-- mysql.local
-- phpmyadmin.local
-- postgres.local
-- pgadmin.local
-- mailcatcher.local
+- redis.localhost
+- mysql.localhost
+- phpmyadmin.localhost
+- postgres.localhost
+- pgadmin.localhost
+- mailcatcher.localhost
 
 Your projects will be automatically resolved to their respective PHP version as follows:
 
-| URL                  | PHP Verson | Root Directory                  |
-| -------------------- | ---------- | ------------------------------- |
-| projectname.56.local | 5.6        | PROJECTS_DIR/projectname/public |
-| projectname.70.local | 7.0        | PROJECTS_DIR/projectname/public |
-| projectname.71.local | 7.1        | PROJECTS_DIR/projectname/public |
-| projectname.72.local | 7.2        | PROJECTS_DIR/projectname/public |
-| projectname.73.local | 7.3        | PROJECTS_DIR/projectname/public |
-| projectname.74.local | 7.4        | PROJECTS_DIR/projectname/public |
+| URL                      | PHP Verson | Root Directory                  |
+| ------------------------ | ---------- | ------------------------------- |
+| projectname.56.localhost | 5.6        | PROJECTS_DIR/projectname/public |
+| projectname.70.localhost | 7.0        | PROJECTS_DIR/projectname/public |
+| projectname.71.localhost | 7.1        | PROJECTS_DIR/projectname/public |
+| projectname.72.localhost | 7.2        | PROJECTS_DIR/projectname/public |
+| projectname.73.localhost | 7.3        | PROJECTS_DIR/projectname/public |
+| projectname.74.localhost | 7.4        | PROJECTS_DIR/projectname/public |

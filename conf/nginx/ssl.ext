@@ -4,9 +4,9 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = *.56.local
-DNS.2 = *.70.local
-DNS.3 = *.71.local
-DNS.4 = *.72.local
-DNS.5 = *.73.local
-DNS.6 = *.74.local
+DNS.1 = *.56.localhost
+DNS.2 = *.70.localhost
+DNS.3 = *.71.localhost
+DNS.4 = *.72.localhost
+DNS.5 = *.73.localhost
+DNS.6 = *.74.localhost
