@@ -73,6 +73,16 @@ services:
       - PMA_PASSWORD=
       - MYSQL_ROOT_PASSWORD=gg
 
+  mailcatcher:
+    build:
+      context: ./containers/mailcatcher
+
+    ports:
+      - 1025:1025
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.25
 
   workspace:
     build:

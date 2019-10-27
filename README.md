@@ -23,7 +23,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] Redis
 - [x] Auto DNS
 - [ ] Local SSL
-- [ ] Catch-all email with webmail
+- [x] Catch-all email with webmail (Mailcatcher)
 
 ## Install
 
@@ -59,6 +59,7 @@ The following DNS records are resolved automatically:
 - phpmyadmin.local
 - postgres.local
 - pgadmin.local
+- mailcatcher.local
 
 Your projects will be automatically resolved to their respective PHP version as follows:
 
