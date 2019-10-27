@@ -4,7 +4,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 
 ## Goals of this project
 
-- To use the official upstream containers with minimal modifications
+- To use the official upstream containers (where possible) with minimal modifications
 - To be easy to modify for your own needs
 - To include tools that makes development faster
 
