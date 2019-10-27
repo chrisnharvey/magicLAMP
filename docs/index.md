@@ -1,0 +1,3 @@
+# magicLAMP
+
+Welcome to magicLAMP
