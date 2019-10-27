@@ -22,7 +22,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] pgAdmin4
 - [x] Redis
 - [x] Auto DNS
-- [ ] Local SSL
+- [x] Automatic Local SSL
 - [x] Catch-all email with webmail (Mailcatcher)
 
 ## Install
@@ -63,11 +63,11 @@ The following DNS records are resolved automatically:
 
 Your projects will be automatically resolved to their respective PHP version as follows:
 
-| URL                 | PHP Verson | Root Directory                  |
-| ------------------- | ---------- | ------------------------------- |
-| projectname.local56 | 5.6        | PROJECTS_DIR/projectname/public |
-| projectname.local70 | 7.0        | PROJECTS_DIR/projectname/public |
-| projectname.local71 | 7.1        | PROJECTS_DIR/projectname/public |
-| projectname.local72 | 7.2        | PROJECTS_DIR/projectname/public |
-| projectname.local73 | 7.3        | PROJECTS_DIR/projectname/public |
-| projectname.local74 | 7.4        | PROJECTS_DIR/projectname/public |
+| URL                  | PHP Verson | Root Directory                  |
+| -------------------- | ---------- | ------------------------------- |
+| projectname.56.local | 5.6        | PROJECTS_DIR/projectname/public |
+| projectname.70.local | 7.0        | PROJECTS_DIR/projectname/public |
+| projectname.71.local | 7.1        | PROJECTS_DIR/projectname/public |
+| projectname.72.local | 7.2        | PROJECTS_DIR/projectname/public |
+| projectname.73.local | 7.3        | PROJECTS_DIR/projectname/public |
+| projectname.74.local | 7.4        | PROJECTS_DIR/projectname/public |
