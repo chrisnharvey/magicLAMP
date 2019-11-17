@@ -1,3 +1,4 @@
+export SHELL=/bin/bash
 
 cat /etc/magicLAMP.art
 
