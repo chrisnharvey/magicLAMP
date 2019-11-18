@@ -38,7 +38,7 @@ ADD composer/composer7.4 /usr/bin/composer7.4
 
 RUN chmod +x /usr/bin/composer*
 
-ADD magicLAMP /etc/magicLAMP.art
-ADD bashrc /etc/magicLAMP.bash
+ADD magicLAMP.art /etc/magicLAMP.art
+ADD magicLAMP.bash /etc/magicLAMP.bash
 
 RUN echo "source /etc/magicLAMP.bash" >> /etc/bash.bashrc
