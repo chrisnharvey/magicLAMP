@@ -13,3 +13,5 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath
 RUN pecl install imagick
 
 RUN docker-php-ext-enable imagick opcache sodium
+
+ADD php-fpm.d/magicLAMP.conf /usr/local/etc/php-fpm.d/magicLAMP.conf
