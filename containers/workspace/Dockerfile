@@ -4,8 +4,8 @@ RUN apt-get update
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl unzip bzip2 chromium-browser wget git git-lfs ssh curl sudo nano software-properties-common fish zsh
 
-RUN useradd magic -m -s /bin/bash 
-RUN echo "magic ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+RUN useradd magicLAMP -m -s /bin/bash 
+RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 

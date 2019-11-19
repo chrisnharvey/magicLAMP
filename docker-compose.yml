@@ -94,7 +94,7 @@ services:
 
     volumes:
       - ${PROJECTS_DIR}:/projects
-      - ${SSH_DIR}:/home/magic/.ssh
+      - ${SSH_DIR}:/home/magicLAMP/.ssh
       - .:/magicLAMP
 
     tty: true
