@@ -29,9 +29,9 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] Automatic Local SSL
 - [x] Catch-all email with webmail (Mailcatcher)
 - [x] Stripe CLI
-- [ ] Save bash history
-- [ ] Allow shell switching (bash, zsh, fish)
-- [ ] Allow changing the DNS resolvers to something other than Cloudflare
+- [x] Save bash history and contents of home directory
+- [ ] Allow changing the DNS resolvers
+- [ ] Allow changing/overriding config files
 
 ## Install
 
