@@ -14,7 +14,8 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN mkdir ~/.gnupg
 RUN echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
-RUN apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 379CE192D401AB61
+RUN gpg --recv-keys 379CE192D401AB61
+RUN gpg --export 379CE192D401AB61 | apt-key add -
 RUN echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" | tee -a /etc/apt/sources.list
 
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
