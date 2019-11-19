@@ -94,6 +94,7 @@ services:
 
     volumes:
       - ${PROJECTS_DIR}:/projects
+      - ./data/workspace:/home/magicLAMP
       - ${SSH_DIR}:/home/magicLAMP/.ssh
       - .:/magicLAMP
 
