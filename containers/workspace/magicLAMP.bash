@@ -4,6 +4,8 @@ cat /etc/magicLAMP.art
 
 source /magicLAMP/.env
 
+export PS1=" ^| \w$ "
+
 sudo chown magicLAMP:magicLAMP /home/magicLAMP
 sudo touch /home/magicLAMP/.bash_history
 sudo chown magicLAMP:magicLAMP /home/magicLAMP/.bash_history
