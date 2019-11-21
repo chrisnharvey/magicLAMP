@@ -12,7 +12,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - To be easy to modify for your own needs
 - To include tools that makes development faster
 
-## Inlcuded
+## Features
 
 - [x] Nginx
 - [x] Automatic virtual hosts
@@ -32,6 +32,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] Save bash history and contents of home directory
 - [ ] Ability to change the DNS resolvers
 - [ ] Ability to change/override config files
+- [ ] Xdebug
 
 ## Install
 
