@@ -33,6 +33,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [ ] Ability to change the DNS resolvers
 - [ ] Ability to change/override config files
 - [ ] Xdebug
+- [ ] Selenium with VNC access for Chrome and Firefox
 
 ## Install
 
