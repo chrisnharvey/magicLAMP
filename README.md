@@ -30,10 +30,10 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] Catch-all email with webmail (Mailcatcher)
 - [x] Stripe CLI
 - [x] Save bash history and contents of home directory
+- [x] Selenium with VNC access for Chrome and Firefox
 - [ ] Ability to change the DNS resolvers
 - [ ] Ability to change/override config files
 - [ ] Xdebug
-- [ ] Selenium with VNC access for Chrome and Firefox
 
 ## Install
 
