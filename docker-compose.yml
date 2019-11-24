@@ -143,6 +143,37 @@ services:
       app_net:
         ipv4_address: 10.0.10.21
 
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+
+    ports:
+      - 4444:4444
+      - 4449:5900
+
+    volumes:
+      - /dev/shm:/dev/shm
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.30
+
+    dns: 10.0.10.2
+
+  selenium_firefox:
+    image: selenium/standalone-firefox-debug
+
+    ports:
+      - 5555:4444
+      - 5559:5900
+
+    volumes:
+      - /dev/shm:/dev/shm
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.31
+
+    dns: 10.0.10.2
 
   php56:
       build:
