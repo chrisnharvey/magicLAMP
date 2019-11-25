@@ -70,6 +70,8 @@ The following DNS records are resolved automatically:
 - postgres.localhost
 - pgadmin.localhost
 - mailcatcher.localhost
+- chrome.localhost
+- firefox.localhost
 
 Your projects will be automatically resolved to their respective PHP version as follows:
 
