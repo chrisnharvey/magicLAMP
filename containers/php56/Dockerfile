@@ -11,5 +11,3 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath
 
 RUN docker-php-ext-enable opcache
-
-ADD php-fpm.d/magicLAMP.conf /usr/local/etc/php-fpm.d/magicLAMP.conf
