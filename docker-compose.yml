@@ -2,6 +2,8 @@ version: '3'
 
 services:
   nginx:
+    image: chrisnharvey/magiclamp-nginx
+
     build:
       context: ./containers/nginx
 
@@ -78,6 +80,8 @@ services:
       - MYSQL_ROOT_PASSWORD=gg
 
   mailcatcher:
+    image: chrisnharvey/magiclamp-mailcatcher
+
     build:
       context: ./containers/mailcatcher
 
@@ -89,6 +93,8 @@ services:
         ipv4_address: 10.0.10.25
 
   workspace:
+    image: chrisnharvey/magiclamp-workspace
+
     build:
       context: ./containers/workspace
 
@@ -176,6 +182,8 @@ services:
     dns: 10.0.10.2
 
   php56:
+      image: chrisnharvey/magiclamp-php56
+
       build:
         context: ./containers/php56
 
@@ -195,6 +203,8 @@ services:
       dns: 10.0.10.2
 
   php70:
+      image: chrisnharvey/magiclamp-php70
+
       build:
         context: ./containers/php70
 
@@ -214,6 +224,8 @@ services:
       dns: 10.0.10.2
 
   php71:
+      image: chrisnharvey/magiclamp-php71
+
       build:
         context: ./containers/php71
 
@@ -233,6 +245,8 @@ services:
       dns: 10.0.10.2
 
   php72:
+      image: chrisnharvey/magiclamp-php72
+
       build:
         context: ./containers/php72
 
@@ -252,6 +266,8 @@ services:
       dns: 10.0.10.2
 
   php73:
+      image: chrisnharvey/magiclamp-php73
+
       build:
         context: ./containers/php73
 
@@ -271,6 +287,8 @@ services:
       dns: 10.0.10.2
 
   php74:
+      image: chrisnharvey/magiclamp-php74
+
       build:
         context: ./containers/php74
 
