@@ -56,7 +56,7 @@ Now change your DNS server on your host machine to 127.0.0.1.
 ```
 cd magicLAMP
 git pull
-docker-compose build --no-cache
+docker-compose pull
 docker-compose up -d
 ```
 
