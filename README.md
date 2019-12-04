@@ -46,6 +46,7 @@ cp .env.example .env
 Now modify the ```.env``` file to suit your needs.
 
 ```
+docker-compose pull
 docker-compose up -d
 ```
 
