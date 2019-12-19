@@ -6,6 +6,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl mysql-client sqlite 
 
 RUN useradd magicLAMP -m -s /bin/bash 
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
