@@ -8,7 +8,7 @@ services:
       context: ./containers/nginx
 
     volumes:
-      - ${PROJECTS_DIR}:/projects
+      - ${PROJECTS_DIR:-./data/projects}:/projects
       - ./data/ca:/ca
       - ./conf/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
       - ./conf/nginx/ssl.ext:/etc/nginx/ssl.ext
@@ -42,8 +42,8 @@ services:
       - ./data/pgadmin:/var/lib/pgadmin
 
     environment:
-      - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}"
-      - "PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}"
+      - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-magiclamp@magiclamp.app}"
+      - "PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD:-magicLAMP}"
 
     dns: 10.0.10.2
 
@@ -99,9 +99,9 @@ services:
       context: ./containers/workspace
 
     volumes:
-      - ${PROJECTS_DIR}:/projects
-      - ./data/workspace:/home/magicLAMP
-      - ${SSH_DIR}:/home/magicLAMP/.ssh
+      - ${PROJECTS_DIR:-./data/projects}:/projects
+      - ${HOME_DIR:-./data/workspace}:/home/magicLAMP
+      - ${SSH_DIR:-./data/ssh}:/home/magicLAMP/.ssh
       - .:/magicLAMP
 
     tty: true
@@ -188,7 +188,7 @@ services:
         context: ./containers/php56
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/5.6/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
@@ -209,7 +209,7 @@ services:
         context: ./containers/php70
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/7.0/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
@@ -230,7 +230,7 @@ services:
         context: ./containers/php71
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/7.1/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/7.1/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
@@ -251,7 +251,7 @@ services:
         context: ./containers/php72
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
@@ -272,7 +272,7 @@ services:
         context: ./containers/php73
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/7.3/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
@@ -293,7 +293,7 @@ services:
         context: ./containers/php74
 
       volumes:
-        - ${PROJECTS_DIR}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/php/7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
         - ./conf/php/7.4/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
