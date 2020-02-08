@@ -10,8 +10,8 @@ services:
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
       - ./data/ca:/ca
-      - ./conf/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
-      - ./conf/nginx/ssl.ext:/etc/nginx/ssl.ext
+      - ./conf/default/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
+      - ./conf/default/nginx/ssl.ext:/etc/nginx/ssl.ext
 
     ports:
       - 80:80
@@ -39,7 +39,7 @@ services:
         ipv4_address: 10.0.10.16
 
     volumes:
-      - ./data/pgadmin:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin
 
     environment:
       - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-magiclamp@magiclamp.app}"
@@ -51,7 +51,7 @@ services:
     image: mariadb:10.3-bionic
 
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     
     command:
      'mysqld --innodb-flush-method=fsync'
@@ -118,7 +118,7 @@ services:
     image: jpillora/dnsmasq
 
     volumes:
-        - ./conf/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
+        - ./conf/default/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
 
     ports:
       - 53:53/udp
@@ -134,7 +134,7 @@ services:
     image: jpillora/dnsmasq
 
     volumes:
-        - ./conf/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
+        - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
     networks:
       app_net:
         ipv4_address: 10.0.10.2
@@ -189,8 +189,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/5.6/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/5.6/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -210,8 +210,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/7.0/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/7.0/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -231,8 +231,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/7.1/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/7.1/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/7.1/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/7.1/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -252,8 +252,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -273,8 +273,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/7.3/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/7.3/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -294,8 +294,8 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/php/7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/php/7.4/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
+        - ./conf/default/php/7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
+        - ./conf/default/php/7.4/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -316,3 +316,8 @@ networks:
     ipam:
       config:
         - subnet: 10.0.10.0/24
+
+volumes:
+  mysql_data:
+
+  pgadmin_data:
