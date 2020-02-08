@@ -2,11 +2,27 @@ FROM ubuntu:18.04
 
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common fish zsh
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common zsh
 
-RUN useradd magicLAMP -m -s /bin/bash 
+RUN useradd magicLAMP -m -s /bin/zsh
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
-RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+
+RUN mkdir /opt/magicLAMP
+RUN ZSH=/opt/magicLAMP/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions /opt/magicLAMP/oh-my-zsh/plugins/zsh-autosuggestions
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /opt/magicLAMP/oh-my-zsh/plugins/zsh-syntax-highlighting
+
+RUN chown magicLAMP:magicLAMP -R /opt/magicLAMP
+
+RUN pip3 install awscli
+
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+RUN mv kubectl /usr/local/bin
+RUN chmod +x /usr/local/bin/kubectl
+
+RUN curl --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+RUN mv /tmp/eksctl /usr/local/bin
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
@@ -31,17 +47,37 @@ ADD install-composer.sh /root/install-composer.sh
 RUN chmod +x /root/install-composer.sh
 RUN /root/install-composer.sh
 
-ADD composer/composer5.6 /usr/bin/composer5.6
-ADD composer/composer7.0 /usr/bin/composer7.0
-ADD composer/composer7.1 /usr/bin/composer7.1
-ADD composer/composer7.2 /usr/bin/composer7.2
-ADD composer/composer7.3 /usr/bin/composer7.3
-ADD composer/composer7.4 /usr/bin/composer7.4
+ADD php/switch-php-version /usr/src/magicLAMP/switch-php-version
+ADD php/5.6 /usr/bin/5.6
+ADD php/7.0 /usr/bin/7.0
+ADD php/7.1 /usr/bin/7.1
+ADD php/7.2 /usr/bin/7.2
+ADD php/7.3 /usr/bin/7.3
+ADD php/7.4 /usr/bin/7.4
 
-RUN chmod +x /usr/bin/composer*
+RUN chmod +x /usr/bin/5.6
+RUN chmod +x /usr/bin/7.0
+RUN chmod +x /usr/bin/7.1
+RUN chmod +x /usr/bin/7.2
+RUN chmod +x /usr/bin/7.3
+RUN chmod +x /usr/bin/7.4
 
-ADD magicLAMP.art /etc/magicLAMP.art
-ADD magicLAMP.bash /etc/magicLAMP.bash
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6"
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.0"
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.1"
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.2"
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.3"
+RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.4"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/5.6 && 5.6 composer require laravel/installer psy/psysh:@stable"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.0 && 7.0 composer require laravel/installer psy/psysh:@stable"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.1 && 7.1 composer require laravel/installer psy/psysh:@stable"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.2 && 7.2 composer require laravel/installer psy/psysh:@stable"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.3 && 7.3 composer require laravel/installer psy/psysh:@stable"
+RUN runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.4 && 7.4 composer require laravel/installer psy/psysh:@stable"
 
-RUN echo "source /etc/magicLAMP.bash" >> /etc/bash.bashrc
-RUN echo "source /etc/magicLAMP.sh" >> /etc/zsh
+ADD magicLAMP.art /usr/src/magicLAMP/magicLAMP.art
+ADD magicLAMP.sh /usr/src/magicLAMP/magicLAMP.sh
+
+RUN echo "source /usr/src/magicLAMP/magicLAMP.sh" >> /etc/zsh/zshrc
+
+ADD zshrc /opt/magicLAMP/zshrc
