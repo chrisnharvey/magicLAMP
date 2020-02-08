@@ -5,7 +5,7 @@ services:
     image: chrisnharvey/magiclamp-nginx
 
     build:
-      context: ./containers/nginx
+      context: ./containers/default/nginx
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -83,7 +83,7 @@ services:
     image: chrisnharvey/magiclamp-mailcatcher
 
     build:
-      context: ./containers/mailcatcher
+      context: ./containers/default/mailcatcher
 
     ports:
       - 1025:1025
@@ -96,7 +96,7 @@ services:
     image: chrisnharvey/magiclamp-workspace
 
     build:
-      context: ./containers/workspace
+      context: ./containers/default/workspace
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -185,7 +185,7 @@ services:
       image: chrisnharvey/magiclamp-php56
 
       build:
-        context: ./containers/php56
+        context: ./containers/default/php56
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -206,7 +206,7 @@ services:
       image: chrisnharvey/magiclamp-php70
 
       build:
-        context: ./containers/php70
+        context: ./containers/default/php70
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -227,7 +227,7 @@ services:
       image: chrisnharvey/magiclamp-php71
 
       build:
-        context: ./containers/php71
+        context: ./containers/default/php71
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -248,7 +248,7 @@ services:
       image: chrisnharvey/magiclamp-php72
 
       build:
-        context: ./containers/php72
+        context: ./containers/default/php72
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -269,7 +269,7 @@ services:
       image: chrisnharvey/magiclamp-php73
 
       build:
-        context: ./containers/php73
+        context: ./containers/default/php73
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -290,7 +290,7 @@ services:
       image: chrisnharvey/magiclamp-php74
 
       build:
-        context: ./containers/php74
+        context: ./containers/default/php74
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
