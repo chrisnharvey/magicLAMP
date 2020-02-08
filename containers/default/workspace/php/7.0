@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SESSION_SWITCH=0
+
+if [[ "${BASH_SOURCE[0]}" != "${0}" ]] ; then
+    SESSION_SWITCH=1
+fi
+
+NEW_VERSION=7.0
+source /usr/src/magicLAMP/switch-php-version
