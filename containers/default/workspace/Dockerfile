@@ -44,3 +44,4 @@ ADD magicLAMP.art /etc/magicLAMP.art
 ADD magicLAMP.bash /etc/magicLAMP.bash
 
 RUN echo "source /etc/magicLAMP.bash" >> /etc/bash.bashrc
+RUN echo "source /etc/magicLAMP.sh" >> /etc/zsh
