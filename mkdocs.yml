@@ -1,0 +1,14 @@
+site_name: magicLAMP
+theme:
+  name: material
+  favicon: null
+  logo:
+    icon: code
+
+nav:
+  - index.md
+  - Installation and Upgrading:
+      - installation-and-upgrading/installation.md
+      - installation-and-upgrading/upgrading.md
+  - PHP:
+    - php/switching-version.md
