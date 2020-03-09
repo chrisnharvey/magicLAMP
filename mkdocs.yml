@@ -28,6 +28,10 @@ nav:
       - installation-and-upgrading/installation.md
       - installation-and-upgrading/upgrading.md
 
+  - Workspace:
+    - Introduction: workspace/index.md
+    - workspace/accessing-the-shell.md
+
   - PHP:
     - php/switching-version.md
 
