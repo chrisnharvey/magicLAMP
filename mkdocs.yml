@@ -5,6 +5,18 @@ theme:
   logo:
     icon: code
 
+repo_name: 'chrisnharvey/magicLAMP'
+repo_url: 'https://github.com/chrisnharvey/magicLAMP'
+
+copyright: 'Copyright &copy; Chris Harvey'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/chrisnharvey/magicLAMP'
+    - type: 'twitter'
+      link: 'https://twitter.com/chrisnharvey'
+
 nav:
   - index.md
 
