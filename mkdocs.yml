@@ -1,4 +1,8 @@
 site_name: magicLAMP
+site_description: A simple Docker setup for local PHP development
+site_author: Chris Harvey
+site_url: https://magiclamp.app
+
 theme:
   name: material
   favicon: null
