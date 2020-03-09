@@ -22,3 +22,8 @@ nav:
   - Redis: redis/index.md
 
   - MailCatcher (SMTP): mailcatcher/index.md
+
+  - Selenium:
+    - selenium/index.md
+    - selenium/firefox.md
+    - selenium/chrome.md
