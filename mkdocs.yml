@@ -32,6 +32,8 @@ nav:
     - Introduction: workspace/index.md
     - workspace/accessing-the-shell.md
 
+  - Automatic DNS: automatic-dns/index.md
+
   - PHP:
     - php/switching-version.md
 
