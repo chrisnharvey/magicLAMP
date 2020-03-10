@@ -34,6 +34,8 @@ nav:
 
   - Automatic DNS: automatic-dns/index.md
 
+  - Automatic SSL: automatic-ssl/index.md
+
   - PHP:
     - php/switching-version.md
 
