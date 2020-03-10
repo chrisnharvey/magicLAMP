@@ -22,3 +22,4 @@ The workspace container is an Ubuntu 18.04 instance.
 - redis-tools
 - screen
 - Stripe CLI
+- Putty Tools
