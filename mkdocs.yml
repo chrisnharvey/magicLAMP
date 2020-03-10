@@ -51,3 +51,6 @@ nav:
     - selenium/index.md
     - selenium/firefox.md
     - selenium/chrome.md
+
+  - Troubleshooting:
+    - troubleshooting/magiclamp-fails-to-start-on-ubuntu.md
