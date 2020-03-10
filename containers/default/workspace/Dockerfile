@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common zsh
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl putty-tools mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common zsh
 
 RUN useradd magicLAMP -m -s /bin/zsh
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
