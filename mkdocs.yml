@@ -52,5 +52,8 @@ nav:
     - selenium/firefox.md
     - selenium/chrome.md
 
+  - Extending magicLAMP:
+    - extending-magiclamp/docker-compose-overrides.md
+
   - Troubleshooting:
     - troubleshooting/magiclamp-fails-to-start-on-ubuntu.md
