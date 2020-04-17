@@ -23,3 +23,7 @@ The workspace container is an Ubuntu 18.04 instance.
 - screen
 - Stripe CLI
 - Putty Tools
+- aws
+- doctl
+- kubectl
+- eksctl
