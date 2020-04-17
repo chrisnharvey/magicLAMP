@@ -11,6 +11,6 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath
 
 RUN pecl install imagick
-RUN pecl install swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl install swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 
 RUN docker-php-ext-enable imagick opcache swoole
