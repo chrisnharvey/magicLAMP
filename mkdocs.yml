@@ -6,8 +6,8 @@ site_url: https://magiclamp.app
 theme:
   name: material
   favicon: null
-  logo:
-    icon: code
+  icon:
+    logo: code
 
 repo_name: 'chrisnharvey/magicLAMP'
 repo_url: 'https://github.com/chrisnharvey/magicLAMP'
