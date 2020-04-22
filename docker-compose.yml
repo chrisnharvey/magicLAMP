@@ -48,13 +48,12 @@ services:
     dns: 10.0.10.2
 
   mysql:
-    image: mariadb:10.3-bionic
+    image: mysql:8
 
     volumes:
       - mysql_data:/var/lib/mysql
     
-    command:
-     'mysqld --innodb-flush-method=fsync'
+    command: --default-authentication-plugin=mysql_native_password
 
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
