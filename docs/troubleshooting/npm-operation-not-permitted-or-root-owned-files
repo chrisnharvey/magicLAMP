@@ -1,0 +1,20 @@
+# npm troubleshooting
+
+A version of NPM caused npm to write root files, which can cause errors such as `Your cache foolder contains root-owned files` or `invalid response body while trying to fetch ${...} EPERM: operation not permitted`
+
+See here for [here](https://npm.community/t/root-owned-files-in-cache-folder/8814) details
+
+Running the following in the workspace will respolve these issues:
+
+```
+sudo mkdir /npm && sudo chown -R 1000:1000 /npm
+npm config set prefix /npm
+npm config set cache /npm
+npm cache clean --force
+cd ${YOUR_PROJECT}
+rm -rf node_modules
+rm -rf package-lock.json
+npm install
+```
+
+Please note, installing wsl mitigates a lot of these permission errors on Windows.
