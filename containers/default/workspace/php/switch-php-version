@@ -14,11 +14,15 @@ export CURRENT_PHP_VERSION=$NEW_VERSION
 export COMPOSER_HOME="~/.composer$CURRENT_PHP_VERSION"
 export PATH="$COMPOSER_HOME/vendor/bin:/opt/magicLAMP/composer/$CURRENT_PHP_VERSION/vendor/bin":$ORIGINAL_PATH
 
-sudo update-alternatives --set php "/usr/bin/php$CURRENT_PHP_VERSION" &> /dev/null
-sudo update-alternatives --set phar "/usr/bin/phar$CURRENT_PHP_VERSION" &> /dev/null
-sudo update-alternatives --set phar.phar "/usr/bin/phar.phar$CURRENT_PHP_VERSION" &> /dev/null
-sudo update-alternatives --set phpize "/usr/bin/phpize$CURRENT_PHP_VERSION" &> /dev/null
-sudo update-alternatives --set php-config "/usr/bin/php-config$CURRENT_PHP_VERSION" &> /dev/null
+if [ "$EUID" -ne 0 ] ; then
+    SUDO="sudo"
+fi
+
+${SUDO} update-alternatives --set php "/usr/bin/php$CURRENT_PHP_VERSION" &> /dev/null
+${SUDO} update-alternatives --set phar "/usr/bin/phar$CURRENT_PHP_VERSION" &> /dev/null
+${SUDO} update-alternatives --set phar.phar "/usr/bin/phar.phar$CURRENT_PHP_VERSION" &> /dev/null
+${SUDO} update-alternatives --set phpize "/usr/bin/phpize$CURRENT_PHP_VERSION" &> /dev/null
+${SUDO} update-alternatives --set php-config "/usr/bin/php-config$CURRENT_PHP_VERSION" &> /dev/null
 
 if [ "$SESSION_SWITCH" -eq "1" ]; then
     echo "PHP version is set to $CURRENT_PHP_VERSION"
@@ -36,10 +40,10 @@ export CURRENT_PHP_VERSION=$OLD_PHP_VERSION
 export COMPOSER_HOME="~/.composer${OLD_PHP_VERSION}"
 export PATH="$COMPOSER_HOME/vendor/bin":$ORIGINAL_PATH
 
-sudo update-alternatives --set php "/usr/bin/php${OLD_PHP_VERSION}" &> /dev/null
-sudo update-alternatives --set phar "/usr/bin/phar${OLD_PHP_VERSION}" &> /dev/null
-sudo update-alternatives --set phar.phar "/usr/bin/phar.phar${OLD_PHP_VERSION}" &> /dev/null
-sudo update-alternatives --set phpize "/usr/bin/phpize${OLD_PHP_VERSION}" &> /dev/null
-sudo update-alternatives --set php-config "/usr/bin/php-config${OLD_PHP_VERSION}" &> /dev/null
+${SUDO} update-alternatives --set php "/usr/bin/php${OLD_PHP_VERSION}" &> /dev/null
+${SUDO} update-alternatives --set phar "/usr/bin/phar${OLD_PHP_VERSION}" &> /dev/null
+${SUDO} update-alternatives --set phar.phar "/usr/bin/phar.phar${OLD_PHP_VERSION}" &> /dev/null
+${SUDO} update-alternatives --set phpize "/usr/bin/phpize${OLD_PHP_VERSION}" &> /dev/null
+${SUDO} update-alternatives --set php-config "/usr/bin/php-config${OLD_PHP_VERSION}" &> /dev/null
 
 exit $status
