@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -it -u magicLAMP magiclamp_workspace_1 /bin/zsh
+docker-compose exec -u magicLAMP workspace /bin/zsh
