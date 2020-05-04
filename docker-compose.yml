@@ -99,7 +99,7 @@ services:
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
-      - ${HOME_DIR:-./data/workspace}:/home/magicLAMP
+      - home_dir:/home/magicLAMP
       - ${SSH_DIR:-./data/ssh}:/home/magicLAMP/.ssh
       - .:/magicLAMP
 
@@ -320,3 +320,5 @@ volumes:
   mysql_data:
 
   pgadmin_data:
+
+  home_dir:
