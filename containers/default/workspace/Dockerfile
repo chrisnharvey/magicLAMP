@@ -34,8 +34,8 @@ RUN mv /tmp/eksctl /usr/local/bin
 RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.41.0/doctl-1.41.0-linux-amd64.tar.gz | tar xz -C /tmp
 RUN mv /tmp/doctl /usr/local/bin
 
-RUN runuser -l magicLAMP -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash"
-RUN runuser -l magicLAMP -c "nvm install --lts"
+RUN runuser -l magicLAMP -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh"
+RUN runuser -l magicLAMP -c "source /home/magicLAMP/.zshrc && nvm install --lts"
 
 RUN mkdir ~/.gnupg
 RUN echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
