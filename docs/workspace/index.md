@@ -18,7 +18,6 @@ The workspace container is an Ubuntu 18.04 instance.
 - VIM
 - NodeJS 10
 - npm
-- yarn
 - redis-tools
 - screen
 - Stripe CLI
