@@ -2,7 +2,12 @@ FROM ubuntu:18.04
 
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl putty-tools mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common zsh
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl putty-tools mysql-client sqlite python3-pip unzip bzip2 wget git git-lfs ssh curl sudo nano vim software-properties-common zsh apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq docker-ce-cli
 
 RUN useradd magicLAMP -m -s /bin/zsh
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
