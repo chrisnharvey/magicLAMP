@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl putty-tools mysql-cl
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN apt-key fingerprint 0EBFCD88
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq docker-ce-cli
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq docker-ce-cli docker-compose
 
 RUN useradd magicLAMP -m -s /bin/zsh
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
