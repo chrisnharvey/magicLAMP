@@ -10,6 +10,8 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq docker-ce-cli docker-compose
 
 RUN useradd magicLAMP -m -s /bin/zsh
+ADD ./home /home/magicLAMP
+RUN chown -R magicLAMP:magicLAMP /home/magicLAMP
 RUN echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
 RUN mkdir /opt/magicLAMP
@@ -94,5 +96,3 @@ ADD magicLAMP.art /usr/src/magicLAMP/magicLAMP.art
 ADD magicLAMP.sh /usr/src/magicLAMP/magicLAMP.sh
 
 RUN echo "source /usr/src/magicLAMP/magicLAMP.sh" >> /etc/zsh/zshrc
-
-ADD zshrc /opt/magicLAMP/zshrc
