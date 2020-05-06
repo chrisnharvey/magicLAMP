@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+  dnsmasq_external:
+    image: chrisnharvey/magiclamp-dnsmasq
+
+    build:
+      context: ./containers/default/dnsmasq_external
+
+    volumes:
+      - ./conf/default/dnsmasq_external/dnsmasq.conf:/etc/dnsmasq.conf
+
+    ports:
+      - 53:53/udp
+      - 5380:8080
+
+    restart: unless-stopped
+
   dnsmasq_internal:
     build:
       context: ./containers/custom/dnsmasq_internal

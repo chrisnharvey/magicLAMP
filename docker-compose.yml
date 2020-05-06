@@ -129,25 +129,6 @@ services:
   dnsmasq:
     image: chrisnharvey/magiclamp-dnsmasq
 
-    build:
-      context: ./containers/default/dnsmasq
-
-    volumes:
-        - ./conf/default/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
-
-    ports:
-      - 53:53/udp
-      - 5380:8080
-
-    restart: always
-
-    networks:
-      app_net:
-        ipv4_address: 10.0.10.53
-
-  dnsmasq_internal:
-    image: chrisnharvey/magiclamp-dnsmasq
-
     volumes:
         - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
 
