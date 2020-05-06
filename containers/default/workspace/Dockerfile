@@ -71,11 +71,17 @@ RUN chmod +x /usr/bin/7.3
 RUN chmod +x /usr/bin/7.4
 
 RUN 5.6 pecl install -f swoole-2.0.11 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 RUN 7.0 pecl install -f swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 RUN 7.1 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 RUN 7.2 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 RUN 7.3 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 RUN 7.4 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl uninstall -r swoole
 
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6"
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.0"
