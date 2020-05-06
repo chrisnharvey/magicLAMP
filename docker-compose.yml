@@ -22,7 +22,10 @@ services:
         ipv4_address: 10.0.10.10
 
   postgres:
-    image: postgres:12
+    image: chrisnharvey/magiclamp-postgres
+
+    build:
+      context: ./containers/default/postgres
 
     ports:
       - 5432:5432
@@ -32,7 +35,10 @@ services:
         ipv4_address: 10.0.10.15
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: chrisnharvey/magiclamp-pgadmin
+
+    build:
+      context: ./containers/default/pgadmin
 
     networks:
       app_net:
@@ -48,7 +54,10 @@ services:
     dns: 10.0.10.2
 
   mysql:
-    image: mysql:8
+    image: chrisnharvey/magiclamp-mysql
+
+    build:
+      context: ./containers/default/mysql
 
     volumes:
       - mysql_data:/var/lib/mysql
@@ -66,7 +75,10 @@ services:
         ipv4_address: 10.0.10.20
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: chrisnharvey/magiclamp-phpmyadmin
+
+    build:
+      context: ./containers/default/phpmyadmin
 
     networks:
       app_net:
@@ -115,7 +127,10 @@ services:
         ipv4_address: 10.0.10.5
 
   dnsmasq:
-    image: jpillora/dnsmasq
+    image: chrisnharvey/magiclamp-dnsmasq
+
+    build:
+      context: ./containers/default/dnsmasq
 
     volumes:
         - ./conf/default/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
@@ -131,10 +146,11 @@ services:
         ipv4_address: 10.0.10.53
 
   dnsmasq_internal:
-    image: jpillora/dnsmasq
+    image: chrisnharvey/magiclamp-dnsmasq
 
     volumes:
         - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
+
     networks:
       app_net:
         ipv4_address: 10.0.10.2
@@ -150,7 +166,10 @@ services:
         ipv4_address: 10.0.10.21
 
   selenium_chrome:
-    image: selenium/standalone-chrome-debug
+    image: chrisnharvey/magiclamp-selenium-chrome
+
+    build:
+      context: ./containers/default/selenium-chrome
 
     ports:
       - 4444:4444
@@ -166,7 +185,10 @@ services:
     dns: 10.0.10.2
 
   selenium_firefox:
-    image: selenium/standalone-firefox-debug
+    image: chrisnharvey/magiclamp-selenium-firefox
+
+    build:
+      context: ./containers/default/selenium-firefox
 
     ports:
       - 5555:4444

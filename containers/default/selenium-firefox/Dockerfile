@@ -1,0 +1,1 @@
+FROM selenium/standalone-firefox-debug

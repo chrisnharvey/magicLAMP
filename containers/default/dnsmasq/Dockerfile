@@ -1,0 +1,1 @@
+FROM jpillora/dnsmasq
