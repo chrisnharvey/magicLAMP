@@ -72,16 +72,22 @@ RUN chmod +x /usr/bin/7.4
 
 RUN 5.6 pecl install -f swoole-2.0.11 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/5.6/cli/conf.d/50-swoole.ini
 RUN 7.0 pecl install -f swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/7.0/cli/conf.d/50-swoole.ini
 RUN 7.1 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/7.1/cli/conf.d/50-swoole.ini
 RUN 7.2 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/7.2/cli/conf.d/50-swoole.ini
 RUN 7.3 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/7.3/cli/conf.d/50-swoole.ini
 RUN 7.4 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
+RUN echo "extension=swoole.so" > /etc/php/7.4/cli/conf.d/50-swoole.ini
 
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6"
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.0"
@@ -100,3 +106,5 @@ ADD magicLAMP.art /usr/src/magicLAMP/magicLAMP.art
 ADD magicLAMP.sh /usr/src/magicLAMP/magicLAMP.sh
 
 RUN echo "source /usr/src/magicLAMP/magicLAMP.sh" >> /etc/zsh/zshrc
+
+RUN runuser -l magicLAMP -c "source /home/magicLAMP/.zshrc && nvm install --lts"
