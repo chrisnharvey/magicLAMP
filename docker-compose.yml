@@ -99,8 +99,9 @@ services:
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
-      - home_dir:/home/magicLAMP
       - ${SSH_DIR:-./data/ssh}:/home/magicLAMP/.ssh
+      - home_dir:/home/magicLAMP
+      - /var/run/docker.sock:/var/run/docker.sock
       - .:/magicLAMP
 
     tty: true
