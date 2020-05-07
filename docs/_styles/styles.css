@@ -1,0 +1,7 @@
+.rst-versions.rst-badge {
+    font-size: 16px;
+}
+
+.rst-versions.rst-badge.shift-up .rst-current-version .fa-book {
+    margin-top: 8px;
+}
