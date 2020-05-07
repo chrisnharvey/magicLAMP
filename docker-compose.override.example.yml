@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  dnsmasq_internal:
+  dnsmasq:
     build:
       context: ./containers/custom/dnsmasq_internal
 
@@ -92,10 +92,3 @@ services:
   workspace:
     build:
       context: ./containers/custom/workspace
-
-  dnsmasq:
-    build:
-      context: ./containers/custom/dnsmasq
-
-    volumes:
-      - ./conf/custom/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
