@@ -15,7 +15,7 @@ repo_url: 'https://github.com/chrisnharvey/magicLAMP'
 copyright: 'Copyright &copy; Chris Harvey'
 
 extra_javascript:
-  - https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
 
 extra:
   social:
