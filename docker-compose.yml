@@ -140,7 +140,10 @@ services:
         ipv4_address: 10.0.10.2
 
   redis:
-    image: redis:5.0
+    image: chrisnharvey/magiclamp-redis
+
+    build:
+      context: ./containers/default/redis
 
     ports:
       - 6379:6379
