@@ -2,8 +2,8 @@
 
 [![Build](https://github.com/chrisnharvey/magicLAMP/workflows/Build/badge.svg)](https://github.com/chrisnharvey/magicLAMP/actions)
 [![Documentation Status](https://readthedocs.org/projects/magiclamp/badge/?version=latest)](http://magiclamp.app/en/latest/?badge=latest)
-[![Author](http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=flat-square)](https://twitter.com/chrisnharvey)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Author](http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=square)](https://twitter.com/chrisnharvey)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=square)](LICENSE)
 
 magicLAMP is a simple docker setup that provides a modern LEMP stack based on official upstream containers.
 
