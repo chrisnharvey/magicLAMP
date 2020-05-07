@@ -70,7 +70,7 @@ RUN chmod +x /usr/bin/7.2
 RUN chmod +x /usr/bin/7.3
 RUN chmod +x /usr/bin/7.4
 
-RUN 5.6 pecl install -f swoole-2.0.11 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN 5.6 pecl install -f swoole-2.0.10 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 RUN pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/5.6/cli/conf.d/50-swoole.ini
 RUN 7.0 pecl install -f swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer

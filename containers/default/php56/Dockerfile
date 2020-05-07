@@ -9,6 +9,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install -j$(nproc) gd
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath
-RUN pecl install swoole-2.0.11 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
+RUN pecl install swoole-2.0.10 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 
 RUN docker-php-ext-enable opcache swoole
