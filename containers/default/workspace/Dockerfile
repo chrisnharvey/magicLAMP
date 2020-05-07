@@ -37,11 +37,9 @@ RUN mv /tmp/doctl /usr/local/bin
 RUN runuser -l magicLAMP -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh"
 RUN runuser -l magicLAMP -c "source /home/magicLAMP/.zshrc && nvm install --lts"
 
-RUN mkdir ~/.gnupg
-RUN echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
-RUN gpg --recv-keys 379CE192D401AB61
-RUN gpg --export 379CE192D401AB61 | apt-key add -
-RUN echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" | tee -a /etc/apt/sources.list
+RUN curl --location "https://github.com/stripe/stripe-cli/releases/download/v1.4.0/stripe_1.4.0_linux_x86_64.tar.gz" | tar xz -C /tmp
+RUN mv /tmp/stripe /usr/local/bin/stripe
+RUN chmod +x /usr/local/bin/stripe
 
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 
