@@ -129,6 +129,9 @@ services:
   dnsmasq:
     image: chrisnharvey/magiclamp-dnsmasq
 
+    build:
+      context: ./containers/default/dnsmasq
+
     volumes:
         - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
 
