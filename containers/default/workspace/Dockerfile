@@ -104,5 +104,3 @@ ADD magicLAMP.art /usr/src/magicLAMP/magicLAMP.art
 ADD magicLAMP.sh /usr/src/magicLAMP/magicLAMP.sh
 
 RUN echo "source /usr/src/magicLAMP/magicLAMP.sh" >> /etc/zsh/zshrc
-
-RUN runuser -l magicLAMP -c "source /home/magicLAMP/.zshrc && nvm install --lts"
