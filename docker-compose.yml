@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: chrisnharvey/magiclamp-nginx
+    image: chrisnharvey/magiclamp-nginx:1
 
     build:
       context: ./containers/default/nginx
@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.10.10
 
   postgres:
-    image: chrisnharvey/magiclamp-postgres
+    image: chrisnharvey/magiclamp-postgres:1
 
     build:
       context: ./containers/default/postgres
@@ -35,7 +35,7 @@ services:
         ipv4_address: 10.0.10.15
 
   pgadmin:
-    image: chrisnharvey/magiclamp-pgadmin
+    image: chrisnharvey/magiclamp-pgadmin:1
 
     build:
       context: ./containers/default/pgadmin
@@ -54,7 +54,7 @@ services:
     dns: 10.0.10.2
 
   mysql:
-    image: chrisnharvey/magiclamp-mysql
+    image: chrisnharvey/magiclamp-mysql:1
 
     build:
       context: ./containers/default/mysql
@@ -75,7 +75,7 @@ services:
         ipv4_address: 10.0.10.20
 
   phpmyadmin:
-    image: chrisnharvey/magiclamp-phpmyadmin
+    image: chrisnharvey/magiclamp-phpmyadmin:1
 
     build:
       context: ./containers/default/phpmyadmin
@@ -91,7 +91,7 @@ services:
       - MYSQL_ROOT_PASSWORD=gg
 
   mailcatcher:
-    image: chrisnharvey/magiclamp-mailcatcher
+    image: chrisnharvey/magiclamp-mailcatcher:1
 
     build:
       context: ./containers/default/mailcatcher
@@ -104,7 +104,7 @@ services:
         ipv4_address: 10.0.10.25
 
   workspace:
-    image: chrisnharvey/magiclamp-workspace
+    image: chrisnharvey/magiclamp-workspace:1
 
     build:
       context: ./containers/default/workspace
@@ -127,7 +127,7 @@ services:
         ipv4_address: 10.0.10.5
 
   dnsmasq:
-    image: chrisnharvey/magiclamp-dnsmasq
+    image: chrisnharvey/magiclamp-dnsmasq:1
 
     build:
       context: ./containers/default/dnsmasq
@@ -140,7 +140,7 @@ services:
         ipv4_address: 10.0.10.2
 
   redis:
-    image: chrisnharvey/magiclamp-redis
+    image: chrisnharvey/magiclamp-redis:1
 
     build:
       context: ./containers/default/redis
@@ -153,7 +153,7 @@ services:
         ipv4_address: 10.0.10.21
 
   selenium_chrome:
-    image: chrisnharvey/magiclamp-selenium-chrome
+    image: chrisnharvey/magiclamp-selenium-chrome:1
 
     build:
       context: ./containers/default/selenium-chrome
@@ -172,7 +172,7 @@ services:
     dns: 10.0.10.2
 
   selenium_firefox:
-    image: chrisnharvey/magiclamp-selenium-firefox
+    image: chrisnharvey/magiclamp-selenium-firefox:1
 
     build:
       context: ./containers/default/selenium-firefox
@@ -191,7 +191,7 @@ services:
     dns: 10.0.10.2
 
   php56:
-      image: chrisnharvey/magiclamp-php56
+      image: chrisnharvey/magiclamp-php56:1
 
       build:
         context: ./containers/default/php56
@@ -212,7 +212,7 @@ services:
       dns: 10.0.10.2
 
   php70:
-      image: chrisnharvey/magiclamp-php70
+      image: chrisnharvey/magiclamp-php70:1
 
       build:
         context: ./containers/default/php70
@@ -233,7 +233,7 @@ services:
       dns: 10.0.10.2
 
   php71:
-      image: chrisnharvey/magiclamp-php71
+      image: chrisnharvey/magiclamp-php71:1
 
       build:
         context: ./containers/default/php71
@@ -254,7 +254,7 @@ services:
       dns: 10.0.10.2
 
   php72:
-      image: chrisnharvey/magiclamp-php72
+      image: chrisnharvey/magiclamp-php72:1
 
       build:
         context: ./containers/default/php72
@@ -275,7 +275,7 @@ services:
       dns: 10.0.10.2
 
   php73:
-      image: chrisnharvey/magiclamp-php73
+      image: chrisnharvey/magiclamp-php73:1
 
       build:
         context: ./containers/default/php73
@@ -296,7 +296,7 @@ services:
       dns: 10.0.10.2
 
   php74:
-      image: chrisnharvey/magiclamp-php74
+      image: chrisnharvey/magiclamp-php74:1
 
       build:
         context: ./containers/default/php74
