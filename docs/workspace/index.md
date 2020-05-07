@@ -16,7 +16,7 @@ The workspace container is an Ubuntu 18.04 instance.
 - MySQL Client
 - nano
 - VIM
-- NodeJS 10
+- NodeJS (with switchable versions via `nvm`)
 - npm
 - redis-tools
 - screen
