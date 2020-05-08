@@ -30,6 +30,9 @@ services:
     ports:
       - 5432:5432
 
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
     networks:
       app_net:
         ipv4_address: 10.0.10.15
