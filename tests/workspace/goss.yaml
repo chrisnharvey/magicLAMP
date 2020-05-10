@@ -1,0 +1,168 @@
+package:
+  git:
+    installed: true
+  git-lfs:
+    installed: true
+  mysql-client:
+    installed: true
+  nano:
+    installed: true
+  putty-tools:
+    installed: true
+  python3:
+    installed: true
+  redis-tools:
+    installed: true
+  screen:
+    installed: true
+  sqlite:
+    installed: true
+    versions:
+    - 2.8.17-14fakesync1
+  vim:
+    installed: true
+command:
+  5.6 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  5.6 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 5.6
+    stderr: []
+    timeout: 10000
+  5.6 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 5.6
+    stderr: []
+    timeout: 10000
+  7.0 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  7.0 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7.0
+    stderr: []
+    timeout: 10000
+  7.0 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 7.0
+    stderr: []
+    timeout: 10000
+  7.1 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  7.1 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7.1
+    stderr: []
+    timeout: 10000
+  7.1 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 7.1
+    stderr: []
+    timeout: 10000
+  7.2 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  7.2 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7.2
+    stderr: []
+    timeout: 10000
+  7.2 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 7.2
+    stderr: []
+    timeout: 10000
+  7.3 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  7.3 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7.3
+    stderr: []
+    timeout: 10000
+  7.3 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 7.3
+    stderr: []
+    timeout: 10000
+  7.4 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  7.4 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 7.4
+    stderr: []
+    timeout: 10000
+  7.4 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 7.4
+    stderr: []
+    timeout: 10000
+  aws help:
+    exit-status: 0
+    stdout:
+    - manage your AWS
+    stderr: []
+    timeout: 10000
+  doctl:
+    exit-status: 0
+    stdout:
+    - DigitalOcean API
+    stderr: []
+    timeout: 10000
+  eksctl:
+    exit-status: 0
+    stdout:
+    - Amazon EKS
+    stderr: []
+    timeout: 10000
+  kubectl:
+    exit-status: 0
+    stdout:
+    - Kubernetes
+    stderr: []
+    timeout: 10000
+  stripe:
+    exit-status: 0
+    stdout:
+    - interact with Stripe
+    stderr: []
+    timeout: 10000
