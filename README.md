@@ -1,7 +1,7 @@
 # magicLAMP
 
 [![Build](https://github.com/chrisnharvey/magicLAMP/workflows/Build/badge.svg)](https://github.com/chrisnharvey/magicLAMP/actions)
-[![Documentation Status](https://readthedocs.org/projects/magiclamp/badge/?version=latest)](http://magiclamp.app/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/magiclamp/badge/?version=stable)](http://magiclamp.app/en/stable/?badge=stable)
 [![Author](http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=square)](https://twitter.com/chrisnharvey)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=square)](LICENSE)
 
