@@ -1,6 +1,6 @@
 # Release Notes
 
-## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/v1.0.1...1.x)
+## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
 ## v1.0.1
 
