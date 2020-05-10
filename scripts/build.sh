@@ -17,9 +17,4 @@ for container_path in ${BASH_SOURCE%/*}/../containers/default/* ; do
 
     docker build ${BUILD_TAGS} ${container_path}
 
-    for TAG in ${TAGS}
-    do
-      docker push "${container_name}:${TAG}"
-    done
-
 done
