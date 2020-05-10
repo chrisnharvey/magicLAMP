@@ -155,6 +155,23 @@ services:
       app_net:
         ipv4_address: 10.0.10.21
 
+  elasticsearch:
+    image: chrisnharvey/magiclamp-elasticsearch-1
+
+    build:
+      context: ./containers/default/elasticsearch
+
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+    environment:
+      - discovery.type=single-node
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.92
+
   selenium_chrome:
     image: chrisnharvey/magiclamp-selenium-chrome:1
 
