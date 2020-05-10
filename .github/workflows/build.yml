@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install tooling
+      run: |
+        curl -fsSL https://goss.rocks/install | sh
+        curl -LO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss
+        chmod +x dcgoss
+        mv dcgoss /usr/local/bin
+
     - uses: actions/checkout@v1
 
     - name: Build Docker Images
