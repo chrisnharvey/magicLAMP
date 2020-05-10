@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Install tooling
       run: |
-        sudo curl -fsSL https://goss.rocks/install | sh
+        curl -fsSL https://goss.rocks/install | sudo sh
         curl -LO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss
         chmod +x dcgoss
         sudo mv dcgoss /usr/local/bin
