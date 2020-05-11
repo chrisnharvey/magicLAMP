@@ -49,9 +49,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq php5.6 php5.6-imagick php
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq redis-tools iputils-ping screen
 
-ADD install-composer.sh /root/install-composer.sh
-RUN chmod +x /root/install-composer.sh
-RUN /root/install-composer.sh
+RUN update-alternatives --remove-all php
+RUN update-alternatives --remove-all phpize
+RUN update-alternatives --remove-all php-config
+RUN update-alternatives --remove-all phar
+RUN update-alternatives --remove-all phar.phar
 
 ADD php/switch-php-version /usr/src/magicLAMP/switch-php-version
 ADD php/5.6 /usr/bin/5.6
@@ -68,24 +70,70 @@ RUN chmod +x /usr/bin/7.2
 RUN chmod +x /usr/bin/7.3
 RUN chmod +x /usr/bin/7.4
 
+RUN mkdir -p /opt/magicLAMP/php/5.6
+RUN ln -s /usr/bin/php5.6 /opt/magicLAMP/php/5.6/php
+RUN ln -s /usr/bin/phpize5.6 /opt/magicLAMP/php/5.6/phpize
+RUN ln -s /usr/bin/phar5.6 /opt/magicLAMP/php/5.6/phar
+RUN ln -s /usr/bin/phar.phar5.6 /opt/magicLAMP/php/5.6/phar.phar
+RUN ln -s /usr/bin/php-config5.6 /opt/magicLAMP/php/5.6/php-config
+
+RUN mkdir -p /opt/magicLAMP/php/7.0
+RUN ln -s /usr/bin/php7.0 /opt/magicLAMP/php/7.0/php
+RUN ln -s /usr/bin/phpize7.0 /opt/magicLAMP/php/7.0/phpize
+RUN ln -s /usr/bin/phar7.0 /opt/magicLAMP/php/7.0/phar
+RUN ln -s /usr/bin/phar.phar7.0 /opt/magicLAMP/php/7.0/phar.phar
+RUN ln -s /usr/bin/php-config7.0 /opt/magicLAMP/php/7.0/php-config
+
+RUN mkdir -p /opt/magicLAMP/php/7.1
+RUN ln -s /usr/bin/php7.1 /opt/magicLAMP/php/7.1/php
+RUN ln -s /usr/bin/phpize7.1 /opt/magicLAMP/php/7.1/phpize
+RUN ln -s /usr/bin/phar7.1 /opt/magicLAMP/php/7.1/phar
+RUN ln -s /usr/bin/phar.phar7.1 /opt/magicLAMP/php/7.1/phar.phar
+RUN ln -s /usr/bin/php-config7.1 /opt/magicLAMP/php/7.1/php-config
+
+RUN mkdir -p /opt/magicLAMP/php/7.2
+RUN ln -s /usr/bin/php7.2 /opt/magicLAMP/php/7.2/php
+RUN ln -s /usr/bin/phpize7.2 /opt/magicLAMP/php/7.2/phpize
+RUN ln -s /usr/bin/phar7.2 /opt/magicLAMP/php/7.2/phar
+RUN ln -s /usr/bin/phar.phar7.2 /opt/magicLAMP/php/7.2/phar.phar
+RUN ln -s /usr/bin/php-config7.2 /opt/magicLAMP/php/7.2/php-config
+
+RUN mkdir -p /opt/magicLAMP/php/7.3
+RUN ln -s /usr/bin/php7.3 /opt/magicLAMP/php/7.3/php
+RUN ln -s /usr/bin/phpize7.3 /opt/magicLAMP/php/7.3/phpize
+RUN ln -s /usr/bin/phar7.3 /opt/magicLAMP/php/7.3/phar
+RUN ln -s /usr/bin/phar.phar7.3 /opt/magicLAMP/php/7.3/phar.phar
+RUN ln -s /usr/bin/php-config7.3 /opt/magicLAMP/php/7.3/php-config
+
+RUN mkdir -p /opt/magicLAMP/php/7.4
+RUN ln -s /usr/bin/php7.4 /opt/magicLAMP/php/7.4/php
+RUN ln -s /usr/bin/phpize7.4 /opt/magicLAMP/php/7.4/phpize
+RUN ln -s /usr/bin/phar7.4 /opt/magicLAMP/php/7.4/phar
+RUN ln -s /usr/bin/phar.phar7.4 /opt/magicLAMP/php/7.4/phar.phar
+RUN ln -s /usr/bin/php-config7.4 /opt/magicLAMP/php/7.4/php-config
+
 RUN 5.6 pecl install -f swoole-2.0.10 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 5.6 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/5.6/cli/conf.d/50-swoole.ini
 RUN 7.0 pecl install -f swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 7.0 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/7.0/cli/conf.d/50-swoole.ini
 RUN 7.1 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 7.1 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/7.1/cli/conf.d/50-swoole.ini
 RUN 7.2 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 7.2 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/7.2/cli/conf.d/50-swoole.ini
 RUN 7.3 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 7.3 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/7.3/cli/conf.d/50-swoole.ini
 RUN 7.4 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
-RUN pecl uninstall -r swoole
+RUN 7.4 pecl uninstall -r swoole
 RUN echo "extension=swoole.so" > /etc/php/7.4/cli/conf.d/50-swoole.ini
+
+ADD install-composer.sh /root/install-composer.sh
+RUN chmod +x /root/install-composer.sh
+RUN 7.4 /root/install-composer.sh
 
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6"
 RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.0"

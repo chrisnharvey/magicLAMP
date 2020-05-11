@@ -1,7 +1,7 @@
 # magicLAMP
 
 [![Build](https://github.com/chrisnharvey/magicLAMP/workflows/Build/badge.svg)](https://github.com/chrisnharvey/magicLAMP/actions)
-[![Documentation Status](https://readthedocs.org/projects/magiclamp/badge/?version=latest)](http://magiclamp.app/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/magiclamp/badge/?version=stable)](http://magiclamp.app/en/stable/?badge=stable)
 [![Author](http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=square)](https://twitter.com/chrisnharvey)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=square)](LICENSE)
 
@@ -26,6 +26,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] PostgreSQL
 - [x] pgAdmin4
 - [x] Redis
+- [x] ElasticSearch
 - [x] Auto DNS
 - [x] Automatic Local SSL
 - [x] Catch-all email with webmail (Mailcatcher)
@@ -65,6 +66,7 @@ The following DNS records are resolved automatically:
 
 - redis.localhost
 - mysql.localhost
+- elasticsearch.localhost
 - phpmyadmin.localhost
 - postgres.localhost
 - pgadmin.localhost

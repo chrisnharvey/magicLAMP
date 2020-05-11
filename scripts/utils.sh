@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# The following was taken from great work by Lars (elgohr)
+# The following has been adapted from great work by Lars (elgohr)
+# Licensed under the MIT license
 # Copyright (c) 2019 Lars
 # https://github.com/elgohr/Publish-Docker-Github-Action
 
@@ -22,11 +23,11 @@ function translateDockerTag() {
 
   elif isPullRequest; then
 
-    TAGS="${GITHUB_SHA}"
+    TAGS="pr-${GITHUB_SHA}"
 
   else
 
-    TAGS="${BRANCH}-dev"
+    TAGS="${BRANCH}"
 
   fi;
 
