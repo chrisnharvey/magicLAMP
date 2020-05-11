@@ -30,9 +30,9 @@ When submitting code changes to magicLAMP, please follow the following guideline
 
 - **Document any change in behaviour** - Make sure the documentation and `README.md` is kept up-to-date.
 
-- **Submit to the correct branch** - Bug fixes should be targeted branch for the latest stable version (e.g. 1.x). Only target the master branch if your you're fixing an issue that only exists in that branch.
+- **Submit to the correct branch** - New features should be targeted at the `develop` branch, and hotfixes should target the `master` branch. We follow the [git-flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow.
 
-- **Create feature/fix specific branches** - Don't ask us to pull from your master branch.
+- **Create feature/hotfix branches** - Don't ask us to pull from your master branch.
 
 - **One pull request per feature/fix** - If you want to do more than one thing, send multiple pull requests.
 
