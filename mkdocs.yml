@@ -65,4 +65,4 @@ nav:
     - extending-magiclamp/docker-compose-overrides.md
 
   - Troubleshooting:
-    - troubleshooting/magiclamp-fails-to-start-on-ubuntu.md
+    - troubleshooting/dns-does-not-resolve.md
