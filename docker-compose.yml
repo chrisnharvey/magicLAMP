@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: chrisnharvey/magiclamp-nginx:1
+    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/nginx
@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.10.10
 
   postgres:
-    image: chrisnharvey/magiclamp-postgres:1
+    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/postgres
@@ -38,7 +38,7 @@ services:
         ipv4_address: 10.0.10.15
 
   pgadmin:
-    image: chrisnharvey/magiclamp-pgadmin:1
+    image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/pgadmin
@@ -57,7 +57,7 @@ services:
     dns: 10.0.10.2
 
   mysql:
-    image: chrisnharvey/magiclamp-mysql:1
+    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/mysql
@@ -78,7 +78,7 @@ services:
         ipv4_address: 10.0.10.20
 
   phpmyadmin:
-    image: chrisnharvey/magiclamp-phpmyadmin:1
+    image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/phpmyadmin
@@ -94,7 +94,7 @@ services:
       - MYSQL_ROOT_PASSWORD=gg
 
   mailcatcher:
-    image: chrisnharvey/magiclamp-mailcatcher:1
+    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/mailcatcher
@@ -107,7 +107,7 @@ services:
         ipv4_address: 10.0.10.25
 
   workspace:
-    image: chrisnharvey/magiclamp-workspace:1
+    image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/workspace
@@ -130,7 +130,7 @@ services:
         ipv4_address: 10.0.10.5
 
   dnsmasq:
-    image: chrisnharvey/magiclamp-dnsmasq:1
+    image: chrisnharvey/magiclamp-dnsmasq:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/dnsmasq
@@ -143,7 +143,7 @@ services:
         ipv4_address: 10.0.10.2
 
   redis:
-    image: chrisnharvey/magiclamp-redis:1
+    image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/redis
@@ -173,7 +173,7 @@ services:
         ipv4_address: 10.0.10.92
 
   selenium_chrome:
-    image: chrisnharvey/magiclamp-selenium-chrome:1
+    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/selenium-chrome
@@ -192,7 +192,7 @@ services:
     dns: 10.0.10.2
 
   selenium_firefox:
-    image: chrisnharvey/magiclamp-selenium-firefox:1
+    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION}
 
     build:
       context: ./containers/default/selenium-firefox
@@ -211,7 +211,7 @@ services:
     dns: 10.0.10.2
 
   php56:
-      image: chrisnharvey/magiclamp-php56:1
+      image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php56
@@ -232,7 +232,7 @@ services:
       dns: 10.0.10.2
 
   php70:
-      image: chrisnharvey/magiclamp-php70:1
+      image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php70
@@ -253,7 +253,7 @@ services:
       dns: 10.0.10.2
 
   php71:
-      image: chrisnharvey/magiclamp-php71:1
+      image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php71
@@ -274,7 +274,7 @@ services:
       dns: 10.0.10.2
 
   php72:
-      image: chrisnharvey/magiclamp-php72:1
+      image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php72
@@ -295,7 +295,7 @@ services:
       dns: 10.0.10.2
 
   php73:
-      image: chrisnharvey/magiclamp-php73:1
+      image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php73
@@ -316,7 +316,7 @@ services:
       dns: 10.0.10.2
 
   php74:
-      image: chrisnharvey/magiclamp-php74:1
+      image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION}
 
       build:
         context: ./containers/default/php74
