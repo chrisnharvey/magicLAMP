@@ -2,7 +2,5 @@
 docker-compose.override.yml
 data/*
 !data/.gitkeep
-conf/custom/*
-!conf/custom/.gitkeep
 containers/custom/*
 !containers/custom/.gitkeep
