@@ -14,6 +14,7 @@ It includes a growing list of features, including:
 - PGAdmin
 - NodeJS
 - Redis
+- Memcached
 - ElasticSearch
 - Catch-all email server with webmail
 - Selenium with VNC access for Chrome and Firefox
