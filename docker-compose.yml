@@ -141,7 +141,7 @@ services:
         ipv4_address: 10.0.10.21
 
   elasticsearch:
-    image: chrisnharvey/magiclamp-elasticsearch-1
+    image: chrisnharvey/magiclamp-elasticsearch:${MAGICLAMP_VERSION}
 
     ports:
       - 9200:9200
