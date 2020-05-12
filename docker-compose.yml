@@ -7,8 +7,6 @@ services:
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
       - ./data/ca:/ca
-      - ./conf/default/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
-      - ./conf/default/nginx/ssl.ext:/etc/nginx/ssl.ext
 
     ports:
       - 80:80
@@ -111,18 +109,12 @@ services:
   dns_internal:
     image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION}
 
-    volumes:
-        - ./conf/default/dns_internal/dnsmasq.conf:/etc/dnsmasq.conf
-
     networks:
       app_net:
         ipv4_address: 10.0.10.2
 
   dns:
     image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION}
-
-    volumes:
-      - ./conf/default/dns/dnsmasq.conf:/etc/dnsmasq.conf
 
     ports:
       - 127.0.0.1:53:53/udp
@@ -191,8 +183,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/5.6/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -209,8 +199,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.0/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -227,8 +215,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.1/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.1/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -245,8 +231,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -263,8 +247,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.3/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -281,8 +263,6 @@ services:
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.4/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 

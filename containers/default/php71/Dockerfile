@@ -14,3 +14,6 @@ RUN pecl install imagick
 RUN pecl install swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer
 
 RUN docker-php-ext-enable imagick opcache swoole
+
+ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
+ADD ./config/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-magicLAMP.conf

@@ -1,5 +1,8 @@
 FROM nginx:latest
 
+ADD ./config/nginx.conf /etc/nginx/conf.d/vhosts.conf
+ADD ./config/ssl.ext /etc/nginx/ssl.ext
+
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq openssl
 
