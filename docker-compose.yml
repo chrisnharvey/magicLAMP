@@ -4,9 +4,6 @@ services:
   nginx:
     image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/nginx
-
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
       - ./data/ca:/ca
@@ -24,9 +21,6 @@ services:
   postgres:
     image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/postgres
-
     ports:
       - 5432:5432
 
@@ -39,9 +33,6 @@ services:
 
   pgadmin:
     image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/pgadmin
 
     networks:
       app_net:
@@ -58,9 +49,6 @@ services:
 
   mysql:
     image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/mysql
 
     volumes:
       - mysql_data:/var/lib/mysql
@@ -80,9 +68,6 @@ services:
   phpmyadmin:
     image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/phpmyadmin
-
     networks:
       app_net:
         ipv4_address: 10.0.10.22
@@ -96,9 +81,6 @@ services:
   mailcatcher:
     image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/mailcatcher
-
     ports:
       - 1025:1025
 
@@ -108,9 +90,6 @@ services:
 
   workspace:
     image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/workspace
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -132,9 +111,6 @@ services:
   dns_internal:
     image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/dns
-
     volumes:
         - ./conf/default/dns_internal/dnsmasq.conf:/etc/dnsmasq.conf
 
@@ -144,9 +120,6 @@ services:
 
   dns:
     image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/dns
 
     volumes:
       - ./conf/default/dns/dnsmasq.conf:/etc/dnsmasq.conf
@@ -160,9 +133,6 @@ services:
   redis:
     image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/redis
-
     ports:
       - 6379:6379
 
@@ -172,9 +142,6 @@ services:
 
   elasticsearch:
     image: chrisnharvey/magiclamp-elasticsearch-1
-
-    build:
-      context: ./containers/default/elasticsearch
 
     ports:
       - 9200:9200
@@ -189,9 +156,6 @@ services:
 
   selenium_chrome:
     image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/selenium-chrome
 
     ports:
       - 4444:4444
@@ -209,9 +173,6 @@ services:
   selenium_firefox:
     image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION}
 
-    build:
-      context: ./containers/default/selenium-firefox
-
     ports:
       - 5555:4444
       - 5559:5900
@@ -227,9 +188,6 @@ services:
 
   php56:
       image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION}
-
-      build:
-        context: ./containers/default/php56
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -249,9 +207,6 @@ services:
   php70:
       image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION}
 
-      build:
-        context: ./containers/default/php70
-
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/default/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
@@ -269,9 +224,6 @@ services:
 
   php71:
       image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION}
-
-      build:
-        context: ./containers/default/php71
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -291,9 +243,6 @@ services:
   php72:
       image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION}
 
-      build:
-        context: ./containers/default/php72
-
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/default/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
@@ -312,9 +261,6 @@ services:
   php73:
       image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION}
 
-      build:
-        context: ./containers/default/php73
-
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
         - ./conf/default/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
@@ -332,9 +278,6 @@ services:
 
   php74:
       image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION}
-
-      build:
-        context: ./containers/default/php74
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects

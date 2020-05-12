@@ -1,94 +1,11 @@
 version: '3'
 
 services:
-  dnsmasq:
-    build:
-      context: ./containers/custom/dnsmasq_internal
-
-    volumes:
-      - ./conf/custom/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
-
-  nginx:
-    build:
-      context: ./containers/custom/nginx
-
-    volumes:
-      - ./conf/custom/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
-
-  php56:
-    build:
-      context: ./containers/custom/php56
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  php70:
-    build:
-      context: ./containers/custom/php70
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  php71:
-    build:
-      context: ./containers/custom/php71
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  php72:
-    build:
-      context: ./containers/custom/php72
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  php73:
-    build:
-      context: ./containers/custom/php73
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  php74:
-    build:
-      context: ./containers/custom/php74
-
-    volumes:
-      - ./conf/custom/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-
-  postgres:
-    build:
-      context: ./containers/custom/postgres
-
-  pgadmin:
-    build:
-      context: ./containers/custom/pgadmin
-
-  mysql:
-    build:
-      context: ./containers/custom/mysql
-
-  phpmyadmin:
-    build:
-      context: ./containers/custom/phpmyadmin
-
-  mailcatcher:
-    build:
-      context: ./containers/custom/mailcatcher
-
-  redis:
-    build:
-      context: ./containers/custom/redis
-
-  selenium_chrome:
-    build:
-      context: ./containers/custom/selenium_chrome
-
-  selenium_firefox:
-    build:
-      context: ./containers/custom/selenium_firefox
-
   workspace:
+    # Override docker image by using a custom build context
     build:
       context: ./containers/custom/workspace
+
+    # Expose additional ports
+    ports:
+      - 3000:3000
