@@ -26,6 +26,7 @@ magicLAMP is a simple docker setup that provides a modern LEMP stack based on of
 - [x] PostgreSQL
 - [x] pgAdmin4
 - [x] Redis
+- [x] Memcached
 - [x] ElasticSearch
 - [x] Auto DNS
 - [x] Automatic Local SSL
