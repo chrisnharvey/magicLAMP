@@ -129,18 +129,33 @@ services:
       app_net:
         ipv4_address: 10.0.10.5
 
-  dnsmasq:
-    image: chrisnharvey/magiclamp-dnsmasq:${MAGICLAMP_VERSION}
+  dns_internal:
+    image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION}
 
     build:
-      context: ./containers/default/dnsmasq
+      context: ./containers/default/dns
 
     volumes:
-        - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
+        - ./conf/default/dns_internal/dnsmasq.conf:/etc/dnsmasq.conf
 
     networks:
       app_net:
         ipv4_address: 10.0.10.2
+
+  dns:
+    image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION}
+
+    build:
+      context: ./containers/default/dns
+
+    volumes:
+      - ./conf/default/dns/dnsmasq.conf:/etc/dnsmasq.conf
+
+    ports:
+      - 127.0.0.1:53:53/udp
+
+    restart: unless-stopped
+
 
   redis:
     image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION}
