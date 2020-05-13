@@ -162,7 +162,7 @@ services:
     hostname: magiclamp-rabbitmq
 
     volumes:
-      rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_data:/var/lib/rabbitmq
 
     ports:
       - 5672:5672
@@ -318,5 +318,7 @@ volumes:
   mysql_data:
 
   pgadmin_data:
+
+  rabbitmq_data:
 
   home_dir:
