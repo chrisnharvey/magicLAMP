@@ -156,6 +156,26 @@ services:
       app_net:
         ipv4_address: 10.0.10.92
 
+  rabbitmq:
+    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION}
+
+    hostname: magiclamp-rabbitmq
+
+    volumes:
+      rabbitmq_data:/var/lib/rabbitmq
+
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME:-magiclamp}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-magicLAMP}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.67
+
   selenium_chrome:
     image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION}
 
