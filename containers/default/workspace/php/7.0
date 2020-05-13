@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 SESSION_SWITCH=0
 
