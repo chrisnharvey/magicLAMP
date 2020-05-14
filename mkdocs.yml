@@ -67,6 +67,3 @@ nav:
 
   - Extending magicLAMP:
     - extending-magiclamp/docker-compose-overrides.md
-
-  - Troubleshooting:
-    - troubleshooting/dns-does-not-resolve.md
