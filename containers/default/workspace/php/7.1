@@ -1,10 +1,6 @@
 #!/bin/zsh
 
-SESSION_SWITCH=0
-
-if [[ "${BASH_SOURCE[0]}" != "${0}" ]] ; then
-    SESSION_SWITCH=1
-fi
+[[ $ZSH_EVAL_CONTEXT =~ :file$ ]] && SESSION_SWITCH=1 || SESSION_SWITCH=0
 
 NEW_VERSION=7.1
 source /usr/src/magicLAMP/switch-php-version
