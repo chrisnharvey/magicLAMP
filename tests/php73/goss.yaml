@@ -18,6 +18,13 @@ command:
     - iconv support => enabled
     stderr: []
     timeout: 10000
+  php -i | grep memcached:
+    exit-status: 0
+    stdout:
+    - memcached
+    - memcached support => enabled
+    stderr: []
+    timeout: 10000
   php -i | grep mysqli:
     exit-status: 0
     stdout:

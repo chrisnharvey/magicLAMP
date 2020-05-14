@@ -53,6 +53,10 @@ nav:
 
   - MailCatcher (SMTP): mailcatcher/index.md
 
+  - Elasticsearch: elasticsearch/index.md
+
+  - RabbitMQ: rabbitmq/index.md
+
   - Selenium:
     - selenium/index.md
     - selenium/firefox.md
@@ -65,4 +69,4 @@ nav:
     - extending-magiclamp/docker-compose-overrides.md
 
   - Troubleshooting:
-    - troubleshooting/magiclamp-fails-to-start-on-ubuntu.md
+    - troubleshooting/dns-does-not-resolve.md

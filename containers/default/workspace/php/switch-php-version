@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ -z $NEW_VERSION ] ; then
     echo "No PHP version specified. Try again with \"NEW_VERSION=7.4 switch-php-version\""
@@ -9,18 +9,40 @@ if [ "$EUID" -ne 0 ] ; then
     SUDO="sudo"
 fi
 
-if [ -z $ORIGINAL_PATH ] ; then
-    export ORIGINAL_PATH=$PATH
+pathremove () {
+    local NEWPATH
+    local DIR
+    for DIR in ${(s.:.)PATH} ; do
+        if [ "$DIR" != "$1" ] ; then
+        NEWPATH=${NEWPATH:+$NEWPATH:}$DIR
+        fi
+    done
+    PATH="$NEWPATH"
+}
+
+pathprepend () {
+    pathremove $1
+    PATH="$1${PATH:+:${PATH}}"
+}
+
+if [ -n $OLD_PHP_VERSION ] ; then
+    pathremove /opt/magicLAMP/php/${OLD_PHP_VERSION}
+    pathremove "~/.composer${OLD_PHP_VERSION}/vendor/bin"
+    pathremove /opt/magicLAMP/composer/$OLD_PHP_VERSION/vendor/bin
 fi
 
 COMPOSER_HOME="~/.composer$NEW_VERSION"
-PATH="/opt/magicLAMP/php/${NEW_VERSION}:$COMPOSER_HOME/vendor/xbin:/opt/magicLAMP/composer/$NEW_VERSION/vendor/bin":$ORIGINAL_PATH
 PHP_PEAR_PHP_BIN="/opt/magicLAMP/php/${NEW_VERSION}/php"
+
+pathprepend /opt/magicLAMP/php/${NEW_VERSION}
+pathprepend $COMPOSER_HOME/vendor/bin
+pathprepend /opt/magicLAMP/composer/$NEW_VERSION/vendor/bin
 
 if [ "$SESSION_SWITCH" -eq "1" ]; then
     export COMPOSER_HOME
     export PATH
     export PHP_PEAR_PHP_BIN
+    export OLD_PHP_VERSION=$NEW_VERSION
 
     echo "PHP version is set to $NEW_VERSION"
     return 0

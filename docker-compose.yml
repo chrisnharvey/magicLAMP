@@ -2,16 +2,11 @@ version: '3'
 
 services:
   nginx:
-    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/nginx
+    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION:-1.2}
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
       - ./data/ca:/ca
-      - ./conf/default/nginx/nginx.conf:/etc/nginx/conf.d/vhosts.conf
-      - ./conf/default/nginx/ssl.ext:/etc/nginx/ssl.ext
 
     ports:
       - 80:80
@@ -22,10 +17,7 @@ services:
         ipv4_address: 10.0.10.10
 
   postgres:
-    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/postgres
+    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 5432:5432
@@ -38,10 +30,7 @@ services:
         ipv4_address: 10.0.10.15
 
   pgadmin:
-    image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/pgadmin
+    image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION:-1.2}
 
     networks:
       app_net:
@@ -56,11 +45,11 @@ services:
 
     dns: 10.0.10.2
 
-  mysql:
-    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION}
+    depends_on:
+      - dns_internal
 
-    build:
-      context: ./containers/default/mysql
+  mysql:
+    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.2}
 
     volumes:
       - mysql_data:/var/lib/mysql
@@ -78,10 +67,7 @@ services:
         ipv4_address: 10.0.10.20
 
   phpmyadmin:
-    image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/phpmyadmin
+    image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION:-1.2}
 
     networks:
       app_net:
@@ -94,10 +80,7 @@ services:
       - MYSQL_ROOT_PASSWORD=gg
 
   mailcatcher:
-    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/mailcatcher
+    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 1025:1025
@@ -107,10 +90,7 @@ services:
         ipv4_address: 10.0.10.25
 
   workspace:
-    image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/workspace
+    image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION:-1.2}
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -125,28 +105,31 @@ services:
 
     dns: 10.0.10.2
 
+    depends_on:
+      - dns_internal
+
     networks:
       app_net:
         ipv4_address: 10.0.10.5
 
-  dnsmasq:
-    image: chrisnharvey/magiclamp-dnsmasq:${MAGICLAMP_VERSION}
-
-    build:
-      context: ./containers/default/dnsmasq
-
-    volumes:
-        - ./conf/default/dnsmasq_internal/dnsmasq.conf:/etc/dnsmasq.conf
+  dns_internal:
+    image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION:-1.2}
 
     networks:
       app_net:
         ipv4_address: 10.0.10.2
 
-  redis:
-    image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION}
+  dns:
+    image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION:-1.2}
 
-    build:
-      context: ./containers/default/redis
+    ports:
+      - 127.0.0.1:53:53/udp
+
+    restart: unless-stopped
+
+
+  redis:
+    image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 6379:6379
@@ -155,11 +138,18 @@ services:
       app_net:
         ipv4_address: 10.0.10.21
 
-  elasticsearch:
-    image: chrisnharvey/magiclamp-elasticsearch-1
+  memcached:
+    image: chrisnharvey/magiclamp-memcached:${MAGICLAMP_VERSION:-1.2}
 
-    build:
-      context: ./containers/default/elasticsearch
+    ports:
+      - 11211:11211
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.11
+
+  elasticsearch:
+    image: chrisnharvey/magiclamp-elasticsearch:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 9200:9200
@@ -172,11 +162,28 @@ services:
       app_net:
         ipv4_address: 10.0.10.92
 
-  selenium_chrome:
-    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION}
+  rabbitmq:
+    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.2}
 
-    build:
-      context: ./containers/default/selenium-chrome
+    hostname: magiclamp-rabbitmq
+
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME:-magiclamp}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-magicLAMP}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.67
+
+  selenium_chrome:
+    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 4444:4444
@@ -191,11 +198,11 @@ services:
 
     dns: 10.0.10.2
 
-  selenium_firefox:
-    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION}
+    depends_on:
+      - dns_internal
 
-    build:
-      context: ./containers/default/selenium-firefox
+  selenium_firefox:
+    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.2}
 
     ports:
       - 5555:4444
@@ -210,16 +217,14 @@ services:
 
     dns: 10.0.10.2
 
-  php56:
-      image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION}
+    depends_on:
+      - dns_internal
 
-      build:
-        context: ./containers/default/php56
+  php56:
+      image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/5.6/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/5.6/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -231,16 +236,14 @@ services:
 
       dns: 10.0.10.2
 
-  php70:
-      image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION}
+      depends_on:
+        - dns_internal
 
-      build:
-        context: ./containers/default/php70
+  php70:
+      image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.0/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.0/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -252,16 +255,14 @@ services:
 
       dns: 10.0.10.2
 
-  php71:
-      image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION}
+      depends_on:
+        - dns_internal
 
-      build:
-        context: ./containers/default/php71
+  php71:
+      image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.1/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.1/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -273,16 +274,14 @@ services:
 
       dns: 10.0.10.2
 
-  php72:
-      image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION}
+      depends_on:
+        - dns_internal
 
-      build:
-        context: ./containers/default/php72
+  php72:
+      image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.2/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -294,16 +293,14 @@ services:
 
       dns: 10.0.10.2
 
-  php73:
-      image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION}
+      depends_on:
+        - dns_internal
 
-      build:
-        context: ./containers/default/php73
+  php73:
+      image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.3/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.3/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -315,16 +312,14 @@ services:
 
       dns: 10.0.10.2
 
-  php74:
-      image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION}
+      depends_on:
+        - dns_internal
 
-      build:
-        context: ./containers/default/php74
+  php74:
+      image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION:-1.2}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
-        - ./conf/default/php/7.4/php.ini:/usr/local/etc/php/conf.d/php.ini
-        - ./conf/default/php/7.4/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
 
       working_dir: /projects
 
@@ -335,6 +330,9 @@ services:
           ipv4_address: 10.0.10.74
 
       dns: 10.0.10.2
+
+      depends_on:
+        - dns_internal
 
 networks:
   app_net:
@@ -350,5 +348,7 @@ volumes:
   mysql_data:
 
   pgadmin_data:
+
+  rabbitmq_data:
 
   home_dir:
