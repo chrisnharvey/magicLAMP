@@ -2,11 +2,30 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
-### v1.1.0
+## v1.2.0
 
 ### New
 
-- ElasticSearch is now included ([#21](https://github.com/chrisnharvey/magicLAMP/issues/21), [4effd1a](https://github.com/chrisnharvey/magicLAMP/commit/4effd1a97f6faac3b443642ab8f381812913b2b6))
+- Memcached container is now included ([#24](https://github.com/chrisnharvey/magicLAMP/issues/24), [28aabe0](https://github.com/chrisnharvey/magicLAMP/commit/28aabe0b2a7fd9464406e8101c0fa4a34b6cb45e))
+- RabbitMQ container is now included ([#25](https://github.com/chrisnharvey/magicLAMP/issues/25), [37845da](https://github.com/chrisnharvey/magicLAMP/commit/37845da9ba4413a4d87ac8daff9569a9b0fb2f00))
+- Memcached extension is now installed for all PHP versions ([2991644](https://github.com/chrisnharvey/magicLAMP/commit/2991644e17e94f4c72520ed918ae3b564ab7e64d))
+- DNS resolver is now included ([#26#](https://github.com/chrisnharvey/magicLAMP/issues/26), [9efcbfa](https://github.com/chrisnharvey/magicLAMP/commit/9efcbfa2ef24a83f8a3cfcedf105c91cbd546a63))
+
+### Improved
+
+- Git status is now disabled in zsh prompt to prevent hangs on Windows ([#30](https://github.com/chrisnharvey/magicLAMP/issues/30), [5568b8e](https://github.com/chrisnharvey/magicLAMP/commit/5568b8e2afc71d387629a7c5614319311c1b44d7))
+- Workspace performance improved and image size reduced by reducing Docker layers ([a97bb17](https://github.com/chrisnharvey/magicLAMP/commit/a97bb17db2f62528966540aec8bf4a6c78f983bd))
+
+### Fixed
+
+- Fixed issue where node and npm would become unavailable when switching PHP version ([#31](https://github.com/chrisnharvey/magicLAMP/issues/31), [2a1c251](https://github.com/chrisnharvey/magicLAMP/commit/2a1c251b1c2ed7399dbabcc9c5071cef4fa1cd06))
+- Postgres PHP driver is now included in the workspace ([e3e74f6](https://github.com/chrisnharvey/magicLAMP/commit/e3e74f61f618a0cb9ef1887772228c90d73692f9))
+
+## v1.1.0
+
+### New
+
+- Elasticsearch is now included ([#21](https://github.com/chrisnharvey/magicLAMP/issues/21), [4effd1a](https://github.com/chrisnharvey/magicLAMP/commit/4effd1a97f6faac3b443642ab8f381812913b2b6))
 
 ### Improved
 
