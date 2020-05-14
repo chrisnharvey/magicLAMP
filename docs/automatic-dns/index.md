@@ -3,6 +3,10 @@
 magicLAMP has a built-in DNS resolver which will automatically resolve a number of
 ```.localhost``` domains to the appropriate magicLAMP container.
 
+## Setup
+
+Simply change the DNS resolver to on your host machine to `127.0.0.1`.
+
 ## Automatic PHP version resolution
 
 The most notable use Auto DNS is resolving your projects to the appropriate PHP
