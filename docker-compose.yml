@@ -45,6 +45,9 @@ services:
 
     dns: 10.0.10.2
 
+    depends_on:
+      - dns_internal
+
   mysql:
     image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.1}
 
@@ -101,6 +104,9 @@ services:
     working_dir: /projects
 
     dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
 
     networks:
       app_net:
@@ -192,6 +198,9 @@ services:
 
     dns: 10.0.10.2
 
+    depends_on:
+      - dns_internal
+
   selenium_firefox:
     image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.1}
 
@@ -207,6 +216,9 @@ services:
         ipv4_address: 10.0.10.31
 
     dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
 
   php56:
       image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.1}
@@ -224,6 +236,9 @@ services:
 
       dns: 10.0.10.2
 
+      depends_on:
+        - dns_internal
+
   php70:
       image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION:-1.1}
 
@@ -239,6 +254,9 @@ services:
           ipv4_address: 10.0.10.70
 
       dns: 10.0.10.2
+
+      depends_on:
+        - dns_internal
 
   php71:
       image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION:-1.1}
@@ -256,6 +274,9 @@ services:
 
       dns: 10.0.10.2
 
+      depends_on:
+        - dns_internal
+
   php72:
       image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION:-1.1}
 
@@ -271,6 +292,9 @@ services:
           ipv4_address: 10.0.10.72
 
       dns: 10.0.10.2
+
+      depends_on:
+        - dns_internal
 
   php73:
       image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.1}
@@ -288,6 +312,9 @@ services:
 
       dns: 10.0.10.2
 
+      depends_on:
+        - dns_internal
+
   php74:
       image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION:-1.1}
 
@@ -303,6 +330,9 @@ services:
           ipv4_address: 10.0.10.74
 
       dns: 10.0.10.2
+
+      depends_on:
+        - dns_internal
 
 networks:
   app_net:
