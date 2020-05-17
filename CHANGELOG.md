@@ -9,7 +9,7 @@
 - Memcached container is now included ([#24](https://github.com/chrisnharvey/magicLAMP/issues/24), [28aabe0](https://github.com/chrisnharvey/magicLAMP/commit/28aabe0b2a7fd9464406e8101c0fa4a34b6cb45e))
 - RabbitMQ container is now included ([#25](https://github.com/chrisnharvey/magicLAMP/issues/25), [37845da](https://github.com/chrisnharvey/magicLAMP/commit/37845da9ba4413a4d87ac8daff9569a9b0fb2f00))
 - Memcached extension is now installed for all PHP versions ([2991644](https://github.com/chrisnharvey/magicLAMP/commit/2991644e17e94f4c72520ed918ae3b564ab7e64d))
-- DNS resolver is now included ([#26#](https://github.com/chrisnharvey/magicLAMP/issues/26), [9efcbfa](https://github.com/chrisnharvey/magicLAMP/commit/9efcbfa2ef24a83f8a3cfcedf105c91cbd546a63))
+- DNS resolver is now included ([#26](https://github.com/chrisnharvey/magicLAMP/issues/26), [9efcbfa](https://github.com/chrisnharvey/magicLAMP/commit/9efcbfa2ef24a83f8a3cfcedf105c91cbd546a63))
 
 ### Improved
 
