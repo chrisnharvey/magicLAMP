@@ -4,7 +4,7 @@
 
 translateDockerTag
 
-for container_path in ${BASH_SOURCE%/*}/../containers/default/* ; do
+for container_path in ${BASH_SOURCE%/*}/../containers/* ; do
 
     container_name="chrisnharvey/magiclamp-$(basename $container_path)"
 

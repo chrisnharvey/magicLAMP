@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ls -d ${BASH_SOURCE%/*}/../containers/default/* | ${BASH_SOURCE%/*}/build.sh
+ls -d ${BASH_SOURCE%/*}/../containers/* | ${BASH_SOURCE%/*}/build.sh
