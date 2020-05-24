@@ -29,6 +29,11 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions /opt/magicLAMP/oh
 # Make magicLAMP own /opt/magicLAMP
 RUN chown magicLAMP:magicLAMP -R /opt/magicLAMP
 
+# Install ngrok
+RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O /tmp/ngrok.zip && \
+    unzip /tmp/ngrok.zip && \
+    mv ngrok /usr/local/bin
+
 # Install AWS CLI
 RUN pip3 install awscli
 
