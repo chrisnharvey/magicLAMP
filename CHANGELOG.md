@@ -2,6 +2,20 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.2
+
+### Fixed
+
+- Replace Emoji git statuses with ASCII equivalents for compatibility with terminals that don't support Emoji ([c7ea84b](https://github.com/chrisnharvey/magicLAMP/commit/c7ea84be2785ca3821c36199381df325af99aea3))
+
+## v1.3.1
+
+### Fixed
+
+- Path to magicLAMP update script has been fixed ([2f7daaf](https://github.com/chrisnharvey/magicLAMP/commit/2f7daaf6bfbd529e5830ec0603f24431e5b0d0a1))
+
+## v1.2.0
+
 ## v1.3.0
 
 ### New
