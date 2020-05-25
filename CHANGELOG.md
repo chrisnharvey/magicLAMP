@@ -2,6 +2,17 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.0
+
+### New
+
+- Added ngrok to workspace container ([#33](https://github.com/chrisnharvey/magicLAMP/issues/33), [437e5ce](https://github.com/chrisnharvey/magicLAMP/commit/437e5cea445ecb0bf128f45cdf69ee92ba745ac3))
+
+### Improved
+
+- PHP and Node versions are now shown in shell ([#9](https://github.com/chrisnharvey/magicLAMP/issues/9), [4dfa7b6](https://github.com/chrisnharvey/magicLAMP/commit/4dfa7b6db036be15c25db70079ec76cb18bcfecf))
+- Added temporary upgrade script to prevent upgrade issues ([fdd6c98](https://github.com/chrisnharvey/magicLAMP/commit/fdd6c987d353739a54d1852fecd25e28fdcb6d06))
+
 ## v1.2.0
 
 ### New
