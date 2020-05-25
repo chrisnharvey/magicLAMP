@@ -21,12 +21,13 @@ ADD --chown=magicLAMP:magicLAMP ./home /home/magicLAMP
 # Add the default magicLAMP zshrc file
 ADD ./home/.zshrc /usr/src/magicLAMP/.zshrc
 
-ADD ./update.sh /opt/magicLAMP/update.sh
-RUN chmod +x /opt/magicLAMP/update.sh
-
 # Install oh-my-zsh
 RUN mkdir /opt/magicLAMP && \
     ZSH=/opt/magicLAMP/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Add temporary update script
+ADD ./update.sh /opt/magicLAMP/update.sh
+RUN chmod +x /opt/magicLAMP/update.sh
 
 # Add oh-my-zsh plugins
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions /opt/magicLAMP/oh-my-zsh/plugins/zsh-autosuggestions && \
