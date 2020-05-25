@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.3
+
+### Fixed
+
+- Fix issue with workspace Dockerfile ([fd9178f](https://github.com/chrisnharvey/magicLAMP/commit/fd9178f562f67b45ced05a93b2ff9f8b8bdbf195))
+
 ## v1.3.2
 
 ### Fixed
