@@ -21,8 +21,8 @@ ADD --chown=magicLAMP:magicLAMP ./home /home/magicLAMP
 # Add the default magicLAMP zshrc file
 ADD ./home/.zshrc /usr/src/magicLAMP/.zshrc
 
-ADD ./update.sh /usr/src/magicLAMP/update.sh
-RUN chmod +x /usr/src/magicLAMP/update.sh
+ADD ./update.sh /opt/magicLAMP/update.sh
+RUN chmod +x /opt/magicLAMP/update.sh
 
 # Install oh-my-zsh
 RUN mkdir /opt/magicLAMP && \
