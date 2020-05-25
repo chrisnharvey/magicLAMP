@@ -18,6 +18,12 @@ RUN useradd magicLAMP -m -s /bin/zsh && \
     echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 ADD --chown=magicLAMP:magicLAMP ./home /home/magicLAMP
 
+# Add the default magicLAMP zshrc file
+ADD ./home/.zshrc /usr/src/magicLAMP/.zshrc
+
+ADD ./update.sh /usr/src/magicLAMP/update.sh
+RUN chmod +x /usr/src/magicLAMP/update.sh
+
 # Install oh-my-zsh
 RUN mkdir /opt/magicLAMP && \
     ZSH=/opt/magicLAMP/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -28,6 +34,9 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions /opt/magicLAMP/oh
 
 # Make magicLAMP own /opt/magicLAMP
 RUN chown magicLAMP:magicLAMP -R /opt/magicLAMP
+
+RUN git clone https://github.com/eduardnikolenko/minima.git "/opt/magicLAMP/oh-my-zsh/custom/themes/minima" && \
+    ln -s "/opt/magicLAMP/oh-my-zsh/custom/themes/minima/minima.zsh-theme" "/opt/magicLAMP/oh-my-zsh/custom/themes/minima.zsh-theme"
 
 # Install ngrok
 RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O /tmp/ngrok.zip && \
