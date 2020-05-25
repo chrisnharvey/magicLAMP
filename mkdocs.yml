@@ -62,11 +62,10 @@ nav:
     - selenium/firefox.md
     - selenium/chrome.md
 
+  - ngrok: ngrok/index.md
+
   - IDE Integration:
     - ide-integration/vscode.md
 
   - Extending magicLAMP:
     - extending-magiclamp/docker-compose-overrides.md
-
-  - Troubleshooting:
-    - troubleshooting/dns-does-not-resolve.md

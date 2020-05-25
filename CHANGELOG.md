@@ -2,6 +2,17 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.0
+
+### New
+
+- Added ngrok to workspace container ([#33](https://github.com/chrisnharvey/magicLAMP/issues/33), [437e5ce](https://github.com/chrisnharvey/magicLAMP/commit/437e5cea445ecb0bf128f45cdf69ee92ba745ac3))
+
+### Improved
+
+- PHP and Node versions are now shown in shell ([#9](https://github.com/chrisnharvey/magicLAMP/issues/9), [4dfa7b6](https://github.com/chrisnharvey/magicLAMP/commit/4dfa7b6db036be15c25db70079ec76cb18bcfecf))
+- Added temporary upgrade script to prevent upgrade issues ([fdd6c98](https://github.com/chrisnharvey/magicLAMP/commit/fdd6c987d353739a54d1852fecd25e28fdcb6d06))
+
 ## v1.2.0
 
 ### New
@@ -9,7 +20,7 @@
 - Memcached container is now included ([#24](https://github.com/chrisnharvey/magicLAMP/issues/24), [28aabe0](https://github.com/chrisnharvey/magicLAMP/commit/28aabe0b2a7fd9464406e8101c0fa4a34b6cb45e))
 - RabbitMQ container is now included ([#25](https://github.com/chrisnharvey/magicLAMP/issues/25), [37845da](https://github.com/chrisnharvey/magicLAMP/commit/37845da9ba4413a4d87ac8daff9569a9b0fb2f00))
 - Memcached extension is now installed for all PHP versions ([2991644](https://github.com/chrisnharvey/magicLAMP/commit/2991644e17e94f4c72520ed918ae3b564ab7e64d))
-- DNS resolver is now included ([#26#](https://github.com/chrisnharvey/magicLAMP/issues/26), [9efcbfa](https://github.com/chrisnharvey/magicLAMP/commit/9efcbfa2ef24a83f8a3cfcedf105c91cbd546a63))
+- DNS resolver is now included ([#26](https://github.com/chrisnharvey/magicLAMP/issues/26), [9efcbfa](https://github.com/chrisnharvey/magicLAMP/commit/9efcbfa2ef24a83f8a3cfcedf105c91cbd546a63))
 
 ### Improved
 
