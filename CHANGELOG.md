@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## 1.3.4
+
+### Fixed
+
+- Fixed zsh hanging on Windows when trying to get git status
+
 ## v1.3.3
 
 ### Fixed

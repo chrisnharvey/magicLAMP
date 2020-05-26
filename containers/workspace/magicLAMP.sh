@@ -52,7 +52,7 @@ export EDITOR='nano'
 MINIMA_PROMPT_ORDER=(
     php
     node
-    git
+    git_branch
     dir
     exit_code
     char
