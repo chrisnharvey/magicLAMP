@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # Update apt repos then install curl, software-properties-common and PHP ppa
 RUN apt-get update && \
@@ -15,7 +15,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq curl putty-tools mysql-cl
 
 # Add magicLAMP user
 RUN useradd magicLAMP -m -s /bin/zsh && \
-    echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+    echo "magicLAMP ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
+    echo "Set disable_coredump false" > /etc/sudo.conf
 ADD --chown=magicLAMP:magicLAMP ./home /home/magicLAMP
 
 # Add the default magicLAMP zshrc file
