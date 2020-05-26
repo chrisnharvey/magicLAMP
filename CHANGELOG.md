@@ -6,7 +6,7 @@
 
 ### Fixed
 
-- Fixed zsh hanging on Windows when trying to get git status
+- Fixed zsh hanging on Windows when trying to get git status ([2717c1f](https://github.com/chrisnharvey/magicLAMP/commit/2717c1fef1e8bc36aca23dee503599ab5cd04739))
 
 ## v1.3.3
 
