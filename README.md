@@ -28,7 +28,7 @@ magicLAMP is a full PHP development environment that works like magic! ✨
 
 ## Getting Started
 
-magicLAMP has extensive documentation to help you get started.
+magicLAMP has extensive [documentation](https://magiclamp.app) to help you get started.
 
 - [Installing magicLAMP](https://magiclamp.app/en/stable/getting-started/installing-magiclamp)
 - [Updating magicLAMP](https://magiclamp.app/en/stable/getting-started/updating-magiclamp)
