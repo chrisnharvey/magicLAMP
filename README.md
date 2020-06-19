@@ -26,53 +26,26 @@ magicLAMP is a full PHP development environment that works like magic! ✨
 - 🐇 Built-in **RabbitMQ** with management GUI
 - ✅ **So much more**
 
-## Install
+## Getting Started
 
-```
-git clone https://github.com/chrisnharvey/magicLAMP
-cd magicLAMP
-cp .env.example .env
-```
+magicLAMP has extensive [documentation](https://magiclamp.app) to help you get started.
 
-Now modify the ```.env``` file to suit your needs.
+- [Installing magicLAMP](https://magiclamp.app/en/stable/getting-started/installing-magiclamp)
+- [Updating magicLAMP](https://magiclamp.app/en/stable/getting-started/updating-magiclamp)
+- [Quick Start](https://magiclamp.app/en/stable/getting-started/quick-start)
 
-```
-docker-compose pull
-docker-compose up -d
-```
+## Contributing
 
-## Updates
+Thank you for considering contributing to magicLAMP! The contribution guide can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-```
-cd magicLAMP
-git pull
-docker-compose pull
-docker-compose up -d
-```
+## Code of Conduct
 
-## DNS records
+In order to ensure that the magicLAMP project is welcoming to all, please review and abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-The following DNS records are resolved automatically:
+## Security Vulnerabilities
 
-- redis.localhost
-- mysql.localhost
-- elasticsearch.localhost
-- rabbitmq.localhost
-- memcached.localhost
-- phpmyadmin.localhost
-- postgres.localhost
-- pgadmin.localhost
-- mailcatcher.localhost
-- chrome.localhost
-- firefox.localhost
+If you discover a security vulnerability within magicLAMP, please **do not** report it publicly. Instead, please see the [Security Policy](SECURITY.md)
 
-Your projects will be automatically resolved to their respective PHP version as follows:
+## License
 
-| URL                      | PHP Verson | Root Directory                  |
-| ------------------------ | ---------- | ------------------------------- |
-| projectname.56.localhost | 5.6        | PROJECTS_DIR/projectname/public |
-| projectname.70.localhost | 7.0        | PROJECTS_DIR/projectname/public |
-| projectname.71.localhost | 7.1        | PROJECTS_DIR/projectname/public |
-| projectname.72.localhost | 7.2        | PROJECTS_DIR/projectname/public |
-| projectname.73.localhost | 7.3        | PROJECTS_DIR/projectname/public |
-| projectname.74.localhost | 7.4        | PROJECTS_DIR/projectname/public |
+magicLAMP is open-source software licensed under the [MIT license](LICENSE.md).
