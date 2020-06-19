@@ -1,4 +1,4 @@
-# Installation
+# Installing magicLAMP
 
 !!! note "Installing on Windows"
     For performance reasons, we recommend using WSL2 on Windows hosts with Ubuntu 20.04 installed
@@ -28,7 +28,7 @@ your needs.
 !!! note "Windows Users"
     For Windows users, we recommend storing your projects directory inside WSL2.
 
-    [See here](/troubleshooting/performance-on-windows) for more information.
+    [See here](https://magiclamp.app/en/stable/troubleshooting/performance-on-windows) for more information.
 
 ### Step 3
 
@@ -42,15 +42,15 @@ docker-compose up -d
 ### Step 4 (optional)
 
 To take full advantage of magicLAMP, you may want to use [Automatic DNS](/automatic-dns)
-and [Automatic SSL](/automatic-ssl).
+and [Automatic SSL](https://magiclamp.app/en/stable/automatic-ssl).
 
 See their respective documentation for information on how to set them up.
 
 ### You're done
 
-If you have [Automatic DNS](/automatic-dns) setup, you can now visit any of your projects
+If you have [Automatic DNS](https://magiclamp.app/en/stable/automatic-dns) setup, you can now visit any of your projects
 using any PHP version by visiting `<project-name>.<php-version>.localhost` in your browser
 (e.g. `my-awesome-project.74.localhost`)
 
-You can also access the [magicLAMP shell](/workspace) which by typing `./shell.sh`
+You can also access the [magicLAMP shell](https://magiclamp.app/en/stable/workspace) which by typing `./shell.sh`
 (or `.\shell.cmd` on Windows).
