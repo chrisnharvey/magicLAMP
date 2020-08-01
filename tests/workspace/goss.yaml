@@ -17,8 +17,6 @@ package:
     installed: true
   sqlite:
     installed: true
-    versions:
-    - 2.8.17-14fakesync1
   vim:
     installed: true
 command:
