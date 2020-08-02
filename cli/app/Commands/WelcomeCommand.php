@@ -28,7 +28,7 @@ class WelcomeCommand extends Command
     public function handle()
     {
         $this->line(<<<'EOD'
-                                                             ..
+                                                             
                                                 dP/$.
                                                 $4$$%
                                               .ee$$ee.
