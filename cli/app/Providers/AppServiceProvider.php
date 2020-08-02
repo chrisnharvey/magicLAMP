@@ -20,9 +20,20 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Docker $docker)
     {
-        //
+        if ($docker->isAvailable()) {
+            return;
+        }
+
+        Event::listen(CommandStarting::class, function ($event) {
+            if (in_array($event->command, [null, 'list'])) {
+                $event->output->writeln(
+                    "\n  <fg=red;options=bold>Unable to connect to Docker. Most commands will be unavailable.</>".
+                    "\n  <fg=red;options=bold>Try running as root (with sudo)</>"
+                );
+            }
+        });
     }
 
     /**
