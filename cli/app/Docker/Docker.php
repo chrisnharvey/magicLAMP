@@ -79,6 +79,11 @@ class Docker
         $this->runCommand($this->dockerComposePath, 'up', '-d', $container);
     }
 
+    public function stop(string $container)
+    {
+        $this->runCommand($this->dockerComposePath, 'stop', $container);
+    }
+
     public function copy(string $container, string $source, string $destination)
     {
         $id = $this->getContainerId($container);
