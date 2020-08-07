@@ -81,16 +81,23 @@ class EditCommand extends DockerCommand
     {
         $this->info("\n File updated.");
 
-        if ($container == 'workspace') {
-            $this->warn(" Please restart the workspace container for your changes to take effect.");
-            $this->warn(' You can do this by running "docker-compose up -d workspace"');
-            exit(0);
-        }
+        $this->info(" The {$container} container must be restarted for your changes to take effect");
 
-        $this->info(' The {$container} container must be restarted for your changes to take effect');
+        if ($container == 'workspace') {
+            $this->warn(' Restarting the worksapce container will kill all active processes within it.');
+            $this->warn(' The shell will restart automatically after restarting.');
+        }
 
         if (! $this->confirm("Would you like to restart {$container} now?")) {
             exit(0);
+        }
+
+        if ($container == 'workspace') {
+            touch(
+                $this->docker->getMagiclampPath('.revive')
+            );
+
+            $this->docker->stop($container);
         }
 
         $this->docker->recreate($container);
