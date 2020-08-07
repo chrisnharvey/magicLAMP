@@ -30,8 +30,6 @@ class ShellCommand extends DockerCommand
      */
     public function handle()
     {
-        $this->ensureDockerIsRunning();
-
         $this->docker->shell(
             $this->argument('container'),
             $this->argument('shell'),

@@ -31,8 +31,6 @@ class RunCommand extends DockerCommand
      */
     public function handle()
     {
-        $this->ensureDockerIsRunning();
-
         $this->docker->run(
             $this->argument('container'),
             $this->argument('cmd'),
