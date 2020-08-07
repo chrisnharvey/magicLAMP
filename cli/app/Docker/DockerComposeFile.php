@@ -24,6 +24,15 @@ class DockerComposeFile
         return file_put_contents($this->dockerComposeOverrideFile, $yaml);
     }
 
+    public function exposePort(string $container, int $containerPort, ?int $hostPort = null)
+    {
+        $ports = $this->dockerComposeOverride['services'][$container]['ports'] ?? [];
+
+        $ports[] = "{$hostPort}:{$containerPort}";
+
+        $this->dockerComposeOverride['services'][$container]['ports'] = $ports;
+    }
+
     public function setVolume(string $container, string $containerPath, string $hostPath)
     {
         $volumes = $this->dockerComposeOverride['services'][$container]['volumes'] ?? [];
