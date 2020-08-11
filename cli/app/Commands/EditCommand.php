@@ -73,7 +73,7 @@ class EditCommand extends DockerCommand
 
         $process->mustRun();
 
-        $compose->setVolume($container, $containerPath, $this->docker->relativePath($hostPath));
+        $compose->setVolume($container, $containerPath, $this->docker->containerPathToHostPath($hostPath));
         $compose->save();
     }
 
