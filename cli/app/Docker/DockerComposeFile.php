@@ -11,10 +11,19 @@ class DockerComposeFile
         $this->dockerComposeFile = $dockerComposeFile;
         $this->dockerComposeOverrideFile = $dockerComposeOverrideFile;
 
+        $this->createOverrideFileIfRequired($this->dockerComposeOverrideFile);
+
         $this->dockerComposeBase = Yaml::parseFile($this->dockerComposeFile);
         $this->dockerComposeOverride = Yaml::parseFile($this->dockerComposeOverrideFile);
 
         $this->dockerComposeConfig = array_merge_recursive($this->dockerComposeBase, $this->dockerComposeOverride);
+    }
+
+    public function createOverrideFileIfRequired()
+    {
+        if (! file_exists($this->dockerComposeOverrideFile)) {
+            file_put_contents($this->dockerComposeOverrideFile, "version: '3'");
+        }
     }
 
     public function save()
