@@ -2,6 +2,7 @@
 
 namespace App\Docker;
 
+use RuntimeException;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -60,10 +61,14 @@ class Docker
         return trim($process->getOutput());
     }
 
-    public function relativePath(string $path)
+    public function containerPathToHostPath(string $path)
     {
+        if (! $hostPath = getenv('MAGICLAMP_HOST_DIR')) {
+            throw new RuntimeException('Unable to determine magicLAMP host path');
+        }
+
         if (strpos($path, $this->magicLampPath) === 0) {
-            return str_replace($this->magicLampPath, '.', $path);
+            return str_replace($this->magicLampPath, $hostPath, $path);
         }
 
         return $path;
