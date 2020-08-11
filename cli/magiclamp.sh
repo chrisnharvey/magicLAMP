@@ -1,5 +1,9 @@
 #!/bin/bash
 
-7.4 ${BASH_SOURCE%/*}/magiclamp $@
+if [ "$EUID" -ne 0 ] ; then
+    SUDO="sudo -E"
+fi
+
+$SUDO 7.4 ${BASH_SOURCE%/*}/magiclamp $@
 
 exit $?
