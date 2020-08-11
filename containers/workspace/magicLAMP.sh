@@ -1,6 +1,3 @@
-# Run magicLAMP update script
-sudo /opt/magicLAMP/update.sh
-
 # Set default shell to zsh
 export SHELL=/bin/zsh
 
