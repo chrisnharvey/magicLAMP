@@ -10,11 +10,6 @@ cat /usr/src/magicLAMP/magicLAMP.art
 # Make .env vars available in the shell
 source /magicLAMP/.env
 
-# Set the active PHP version to the default specified in .env
-NEW_VERSION=$DEFAULT_PHP_VERSION
-SESSION_SWITCH=1
-source /usr/src/magicLAMP/switch-php-version
-
 # Set user git configs from .env file
 git config --global user.name "${GIT_NAME}"
 git config --global user.email "${GIT_EMAIL}"
@@ -38,7 +33,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting laravel node npm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting laravel node npm magiclamp)
 
 source $ZSH/oh-my-zsh.sh
 

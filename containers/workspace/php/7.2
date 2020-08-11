@@ -1,6 +1,11 @@
 #!/bin/zsh
 
-[[ $ZSH_EVAL_CONTEXT =~ :file$ ]] && SESSION_SWITCH=1 || SESSION_SWITCH=0
+if [[ $ZSH_EVAL_CONTEXT =~ :file$ ]]; then
+    SESSION_SWITCH=1
+    export DEFAULT_PHP_VERSION=7.2
+else
+    SESSION_SWITCH=0
+fi
 
 NEW_VERSION=7.2
 source /usr/src/magicLAMP/switch-php-version
