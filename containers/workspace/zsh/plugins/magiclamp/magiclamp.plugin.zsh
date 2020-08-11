@@ -1,5 +1,9 @@
 load_magiclamp()
 {
+    if [ "$AUTO_SWITCH_PHP" != "1" ]; then
+        return
+    fi
+
     local magiclamprc="$(find_magiclamprc)"
     local switch_php=0
 
