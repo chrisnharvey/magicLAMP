@@ -1,6 +1,6 @@
 load_magiclamp()
 {
-    if [ "$AUTO_SWITCH_PHP" != "1" ]; then
+    if [ "${AUTO_SWITCH_PHP:-1}" != "1" ]; then
         return
     fi
 
