@@ -3,7 +3,7 @@
 magicLAMP comes with a powerful workspace, with pre-installed dev tools available to make development
 faster.
 
-The workspace container is an Ubuntu 18.04 instance.
+The workspace container is an Ubuntu 20.04 instance.
 
 ## Available Tools
 
