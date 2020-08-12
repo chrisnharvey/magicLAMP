@@ -48,6 +48,7 @@ nav:
 
   - PHP:
     - php/switching-version.md
+    - php/automatic-version-switching.md
 
   - MySQL: mysql/index.md
 
