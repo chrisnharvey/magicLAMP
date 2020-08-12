@@ -197,7 +197,7 @@ RUN cd /cli && \
 RUN echo ${magiclamp_version} >> /.magiclamp-version
 
 # Add magicLAMP shell scripts
-ADD magicLAMP.art magicLAMP.sh /usr/src/magicLAMP/
+ADD magicLAMP.sh /usr/src/magicLAMP/
 
 # Run magicLAMP shell script in zshrc
 RUN echo "source /usr/src/magicLAMP/magicLAMP.sh" >> /etc/zsh/zshrc

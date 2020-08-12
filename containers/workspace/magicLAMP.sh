@@ -4,8 +4,8 @@ export SHELL=/bin/zsh
 # Set deault user to magicLAMP
 export DEFAULT_USER="magicLAMP"
 
-# Show the magicLAMP art
-cat /usr/src/magicLAMP/magicLAMP.art
+# Show the magicLAMP welcome screen
+magiclamp welcome
 
 # Make .env vars available in the shell
 source /magicLAMP/.env
