@@ -191,7 +191,8 @@ RUN cd /cli && \
     7.4 composer install --prefer-dist --verbose --no-progress --no-interaction --no-dev --optimize-autoloader && \
     7.4 ./build.sh ${magiclamp_version} && \
     mv builds/magiclamp /usr/src/magicLAMP/magiclamp && \
-    mv magiclamp.sh /usr/bin/magiclamp
+    mv magiclamp.sh /usr/bin/magiclamp && \
+    rm -rf /cli
 
 # Set the magicLAMP version
 RUN echo ${magiclamp_version} >> /.magiclamp-version
