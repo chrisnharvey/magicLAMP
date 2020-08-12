@@ -52,5 +52,5 @@ If you have [Automatic DNS](https://magiclamp.app/en/stable/automatic-dns) setup
 using any PHP version by visiting `<project-name>.<php-version>.localhost` in your browser
 (e.g. `my-awesome-project.74.localhost`)
 
-You can also access the [magicLAMP shell](https://magiclamp.app/en/stable/workspace) which by typing `./shell.sh`
+You can also access the [magicLAMP workspace](https://magiclamp.app/en/stable/workspace) which by typing `./shell.sh`
 (or `.\shell.cmd` on Windows).
