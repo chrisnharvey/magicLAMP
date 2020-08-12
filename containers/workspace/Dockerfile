@@ -183,6 +183,19 @@ RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.3 && 7.3 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.4 && 7.4 composer require laravel/installer psy/psysh:@stable"
 
+ARG magiclamp_version=dev
+
+# Build magicLAMP CLI
+ADD ./cli /cli
+RUN cd /cli && \
+    7.4 composer install --prefer-dist --verbose --no-progress --no-interaction --no-dev --optimize-autoloader && \
+    7.4 ./build.sh ${magiclamp_version} && \
+    mv builds/magiclamp /usr/src/magicLAMP/magiclamp && \
+    mv magiclamp.sh /usr/bin/magiclamp
+
+# Set the magicLAMP version
+RUN echo ${magiclamp_version} >> /.magiclamp-version
+
 # Add magicLAMP shell scripts
 ADD magicLAMP.art magicLAMP.sh /usr/src/magicLAMP/
 
