@@ -11,9 +11,11 @@ magiclamp welcome
 source /magicLAMP/.env
 
 # Set the active PHP version to the default specified in .env
-NEW_VERSION=$DEFAULT_PHP_VERSION
-SESSION_SWITCH=1
-source /usr/src/magicLAMP/switch-php-version
+if [ "${AUTO_SWITCH_PHP:-1}" != "1" ]; then
+    NEW_VERSION=$DEFAULT_PHP_VERSION
+    SESSION_SWITCH=1
+    source /usr/src/magicLAMP/switch-php-version
+fi
 
 # Set user git configs from .env file
 git config --global user.name "${GIT_NAME}"
