@@ -41,6 +41,7 @@ nav:
   - Workspace:
     - Introduction: workspace/index.md
     - workspace/accessing-the-shell.md
+    - workspace/magiclamp-cli.md
 
   - Automatic DNS: automatic-dns/index.md
 
