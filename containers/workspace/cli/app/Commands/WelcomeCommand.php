@@ -55,5 +55,7 @@ class WelcomeCommand extends Command
                                      __/ |                                     
                                     |___/                                      
         EOD);
+
+        $this->runCommand('update-check', ['--safe' => 1], $this->output);
     }
 }
