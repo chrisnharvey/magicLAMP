@@ -27,6 +27,10 @@ class Docker
             return $this->isAvailable;
         }
 
+        if (getenv('IGNORE_DOCKER')) {
+            return $this->isAvailable = false;
+        }
+
         try {
             (new Process([$this->dockerComposePath, 'ps'], $this->magicLampPath))->mustRun();
         } catch (ProcessFailedException $e) {
