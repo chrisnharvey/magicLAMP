@@ -14,4 +14,6 @@ do
     BUILD_TAGS="${BUILD_TAGS}-t ${container_name}:${TAG} "
 done
 
-docker build ${BUILD_TAGS} ${container_path}
+VERSION=$(echo $TAGS | cut -d " " -f1)
+
+docker build --build-arg magiclamp_version=${TAG} ${BUILD_TAGS} ${container_path}
