@@ -32,12 +32,25 @@ class UpdateCheckCommand extends DockerCommand
     public function handle()
     {
         try {
-            $currentVersion = trim(file_get_contents($this->docker->getMagiclampPath('.version')));
+            $currentVersion = trim(file_get_contents('/.magiclamp-version'));
+
+            if (! str_contains($currentVersion, '.')) {
+                if (! $this->option('safe')) {
+                    $this->error('Unable to check for updates');
+                }
+
+                $this->warn("You are running a development build of magicLAMP");
+
+                return;
+            }
+
             $latestVersion = $this->getLatestVersionTag();
 
             if (version_compare($latestVersion, $currentVersion) === 1) {
                 $this->info("A new version of magicLAMP is available ({$latestVersion})");
                 $this->line('To upgrade, see https://magiclamp.app/en/stable/getting-started/updating-magiclamp');
+            } elseif (! $this->option('safe')) {
+                $this->info('No updates available');
             }
         } catch (Exception $e) {
             if (! $this->option('safe')) {
@@ -54,6 +67,6 @@ class UpdateCheckCommand extends DockerCommand
             $response->json()
         )->first();
 
-        return $latestVersion['tag_name'];
+        return ltrim($latestVersion['tag_name'], 'v');
     }
 }
