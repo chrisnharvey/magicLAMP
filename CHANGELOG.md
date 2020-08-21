@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.6
+
+### Improved
+
+- Documentation updates
+
 ## v1.3.5
+
+### Improved
 
 - Documentation and readme updates
 
