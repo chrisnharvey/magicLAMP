@@ -2,8 +2,8 @@
 
 <p align="center">
 <a href="https://github.com/chrisnharvey/magicLAMP/actions"><img src="https://img.shields.io/github/workflow/status/chrisnharvey/magicLAMP/Build/master" alt="Build status"></a>
-<a href="http://magiclamp.app/en/stable/?badge=stable"><img src="https://readthedocs.org/projects/magiclamp/badge/?version=stable" alt="Documentation Status"></a>
-<a href="https://twitter.com/chrisnharvey"><img src="http://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=square" alt="Author"></a>
+<a href="https://magiclamp.app/en/stable/?badge=stable"><img src="https://readthedocs.org/projects/magiclamp/badge/?version=stable" alt="Documentation Status"></a>
+<a href="https://twitter.com/chrisnharvey"><img src="https://img.shields.io/badge/author-@chrisnharvey-blue.svg?style=square" alt="Author"></a>
 <a href="https://github.com/chrisnharvey/magicLAMP/releases"><img src="https://img.shields.io/github/v/release/chrisnharvey/magicLAMP" alt="Latest version"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=square" alt="License"></a>
 </p>
