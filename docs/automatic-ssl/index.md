@@ -14,7 +14,7 @@ start magicLAMP, which makes them unique to your machine, and they are **not** s
 with other magicLAMP users.
 
 However, it is important to keep your certificate keys safe. Should your keys become
-compromised, someone could use them to sign valid certificates for any domain. this
+compromised, someone could use them to sign valid certificates for any domain. This
 means that it would become possible for an attacker with access to your private keys
 to perform a man-in-the-middle attack on domains protected with SSL.
 
