@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.7
+
+### Fixed
+
+- GD library in PHP 7.4 now supports png and webp images
+
 ## v1.3.6
 
 ### Improved
