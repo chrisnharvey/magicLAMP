@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.8
+
+### Fixed
+
+- Fix regression from v1.3.7 that caused gd build to fail
+
 ## v1.3.7
 
 ### Fixed
