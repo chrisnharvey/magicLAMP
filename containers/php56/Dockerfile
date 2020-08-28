@@ -8,7 +8,8 @@ RUN apt-get update && \
     docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath && \
     pecl install swoole-2.0.10 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
     pecl install memcached-2.2.0 && \
-    docker-php-ext-enable opcache swoole memcached
+    pecl install xdebug && \
+    docker-php-ext-enable opcache swoole memcached xdebug
 
 ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./config/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
