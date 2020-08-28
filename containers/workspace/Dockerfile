@@ -54,6 +54,9 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
     mv kubectl /usr/local/bin && \
     chmod +x /usr/local/bin/kubectl
 
+# Install helm
+RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
 # Install eksctl
 RUN curl --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp && \
     mv /tmp/eksctl /usr/local/bin
