@@ -9,7 +9,7 @@ RUN apt-get update && \
     pecl install imagick && \
     pecl install swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
     pecl install memcached && \
-    pecl install xdebug && \
+    pecl install xdebug-2.9.0 && \
     docker-php-ext-enable imagick opcache swoole memcached xdebug
 
 ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
