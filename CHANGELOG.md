@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.3.9
+
+### Fixed
+
+- Laravel 8 support
+
 ## v1.3.8
 
 ### Fixed
