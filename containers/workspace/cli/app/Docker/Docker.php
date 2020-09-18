@@ -55,12 +55,12 @@ class Docker
 
     public function run(string $container, string $command, string $user = 'root')
     {
-        return passthru("{$this->dockerComposePath} exec -u {$user} {$container} {$command}");
+        return $this->runCommand([$this->dockerComposePath, 'exec', '-u', $user, $container, $command], true, false);
     }
 
     public function getContainerId(string $container): string
     {
-        $process = $this->runCommand($this->dockerComposePath, 'ps', '-q', $container);
+        $process = $this->runCommand([$this->dockerComposePath, 'ps', '-q', $container]);
 
         return trim($process->getOutput());
     }
@@ -80,24 +80,24 @@ class Docker
 
     public function restart(string $container)
     {
-        $this->runCommand($this->dockerComposePath, 'restart', $container);
+        $this->runCommand([$this->dockerComposePath, 'restart', $container]);
     }
 
     public function recreate(string $container)
     {
-        $this->runCommand($this->dockerComposePath, 'up', '-d', $container);
+        $this->runCommand([$this->dockerComposePath, 'up', '-d', $container]);
     }
 
     public function stop(string $container)
     {
-        $this->runCommand($this->dockerComposePath, 'stop', $container);
+        $this->runCommand([$this->dockerComposePath, 'stop', $container]);
     }
 
     public function copy(string $container, string $source, string $destination)
     {
         $id = $this->getContainerId($container);
 
-        $this->runCommand($this->dockerPath, 'cp', "{$id}:{$source}", $destination);
+        $this->runCommand([$this->dockerPath, 'cp', "{$id}:{$source}", $destination]);
     }
 
     public function getError(): string
@@ -105,9 +105,16 @@ class Docker
         return $this->error;
     }
 
-    protected function runCommand(...$args)
+    protected function runCommand(array $args, bool $tty = false, bool $escape = true)
     {
-        $process = new Process($args);
+        if ($escape) {
+            $process = new Process($args, $this->magicLampPath);
+        } else {
+            $process = Process::fromShellCommandline(implode(' ', $args), $this->magicLampPath);
+        }
+
+        $process->setTty($tty);
+        $process->setTimeout(null);
 
         try {
             $process->mustRun();
