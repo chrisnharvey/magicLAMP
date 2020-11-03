@@ -41,7 +41,7 @@ docker-compose up -d
 
 ### Step 4 (optional)
 
-To take full advantage of magicLAMP, you may want to use [Automatic DNS](/automatic-dns)
+To take full advantage of magicLAMP, you may want to use [Automatic DNS](https://magiclamp.app/en/stable/automatic-dns)
 and [Automatic SSL](https://magiclamp.app/en/stable/automatic-ssl).
 
 See their respective documentation for information on how to set them up.
