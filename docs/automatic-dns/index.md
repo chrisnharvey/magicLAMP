@@ -5,7 +5,9 @@ magicLAMP has a built-in DNS resolver which will automatically resolve a number 
 
 ## Setup
 
-Simply change the DNS resolver to on your host machine to `127.0.0.1`.
+Simply change the DNS resolver on your host machine to `127.0.0.1`.
+
+!!! note "Windows Users" For Windows users, go to your Network Settings and update `DNS` field with `127.0.0.1` for `IPv4 protocol` on the `vEthernet (WSL)` adapter.
 
 ## Automatic PHP version resolution
 
