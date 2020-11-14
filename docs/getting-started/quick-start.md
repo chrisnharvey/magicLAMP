@@ -14,6 +14,7 @@ Your projects will be automatically resolved to their respective PHP version as 
 | projectname.72.localhost | 7.2        | PROJECTS_DIR/projectname/public |
 | projectname.73.localhost | 7.3        | PROJECTS_DIR/projectname/public |
 | projectname.74.localhost | 7.4        | PROJECTS_DIR/projectname/public |
+| projectname.80.localhost | 8.0        | PROJECTS_DIR/projectname/public |
 
 ## Accessing services
 
