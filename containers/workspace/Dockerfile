@@ -126,22 +126,22 @@ RUN mkdir -p /opt/magicLAMP/php/5.6 && \
     ln -s /usr/bin/php-config7.4 /opt/magicLAMP/php/7.4/php-config
 
 # Install Swoole for each PHP version
-RUN 5.6 pecl install -f swoole-2.0.10 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+RUN 5.6 pecl install -f swoole-2.0.10 && \
     5.6 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/5.6/cli/conf.d/50-swoole.ini && \
-    7.0 pecl install -f swoole-4.3.6 --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+    7.0 pecl install -f swoole-4.3.6 && \
     7.0 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.0/cli/conf.d/50-swoole.ini && \
-    7.1 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+    7.1 pecl install -f swoole && \
     7.1 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.1/cli/conf.d/50-swoole.ini && \
-    7.2 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+    7.2 pecl install -f swoole && \
     7.2 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.2/cli/conf.d/50-swoole.ini && \
-    7.3 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+    7.3 pecl install -f swoole && \
     7.3 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.3/cli/conf.d/50-swoole.ini && \
-    7.4 pecl install -f swoole --enable-sockets --enable-openssl --enable-http2 --enable-async-redis --enable-timewheel --enable-mysqlnd --enable-ringbuffer && \
+    7.4 pecl install -f swoole && \
     7.4 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.4/cli/conf.d/50-swoole.ini
 
