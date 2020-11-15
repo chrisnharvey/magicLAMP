@@ -7,7 +7,7 @@ The workspace container is an Ubuntu 18.04 instance.
 
 ## Available Tools
 
-- PHP 5.6 - 7.4
+- PHP 5.6 - 8.0
 - Composer (with switchable PHP versions)
 - Python 3 & pip
 - git
