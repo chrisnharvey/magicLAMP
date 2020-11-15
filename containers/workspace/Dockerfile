@@ -14,7 +14,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq --no-install-suggests --no-install-recommends \
     # General tools
     curl putty-tools unzip bzip2 wget git git-lfs ssh sudo nano vim zsh apt-transport-https ca-certificates gnupg-agent build-essential \
-    libhiredis-dev nghttp2 libmemcached-dev pkg-config zlib1g-dev docker-ce-cli docker-compose redis-tools iputils-ping screen \
+    libhiredis-dev nghttp2 libmemcached-dev pkg-config zlib1g-dev docker-ce-cli docker-compose redis-tools iputils-ping screen less groff \
     # DB tools
     mysql-client sqlite \
     # Python
