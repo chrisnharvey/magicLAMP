@@ -152,6 +152,10 @@ RUN mkdir -p /opt/magicLAMP/php/5.6 && \
     ln -s /usr/bin/phar.phar8.0 /opt/magicLAMP/php/8.0/phar.phar && \
     ln -s /usr/bin/php-config8.0 /opt/magicLAMP/php/8.0/php-config
 
+# Install pear/pecl
+RUN wget http://pear.php.net/go-pear.phar && \
+    php go-pear.phar
+
 # Install Swoole for each PHP version
 RUN yes | 5.6 pecl install -f swoole-2.0.10 && \
     5.6 pecl uninstall -r swoole && \
