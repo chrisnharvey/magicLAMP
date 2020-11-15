@@ -2,6 +2,13 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+## v1.4.0
+
+### New
+
+- PHP 8.0 RC3
+- Composer 2
+
 ## v1.3.9
 
 ### Fixed
