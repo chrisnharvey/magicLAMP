@@ -516,7 +516,7 @@ command:
     exit-status: 0
     stdout:
     - Psy Shell
-    - PHP 7.4
+    - PHP 8.0
     stderr: []
     timeout: 10000
   aws help:
