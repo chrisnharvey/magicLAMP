@@ -446,6 +446,77 @@ command:
     - PHP 7.4
     stderr: []
     timeout: 10000
+  8.0 laravel --version:
+    exit-status: 0
+    stdout:
+    - Laravel Installer
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep bcmath:
+    exit-status: 0
+    stdout:
+    - bcmath
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep gd:
+    exit-status: 0
+    stdout:
+    - gd
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep iconv:
+    exit-status: 0
+    stdout:
+    - iconv
+    - iconv support => enabled
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep memcached:
+    exit-status: 0
+    stdout:
+    - memcached
+    - memcached support => enabled
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep mysqli:
+    exit-status: 0
+    stdout:
+    - mysqli
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep pdo:
+    exit-status: 0
+    stdout:
+    - pdo_mysql
+    - pdo_pgsql
+    - pdo_sqlite
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep swoole:
+    exit-status: 0
+    stdout:
+    - swoole
+    stderr: []
+    timeout: 10000
+  8.0 php -i | grep zip:
+    exit-status: 0
+    stdout:
+    - zip
+    stderr: []
+    timeout: 10000
+  8.0 php -v:
+    exit-status: 0
+    stdout:
+    - PHP 8.0
+    stderr: []
+    timeout: 10000
+  8.0 psysh --version:
+    exit-status: 0
+    stdout:
+    - Psy Shell
+    - PHP 8.0
+    stderr: []
+    timeout: 10000
   aws help:
     exit-status: 0
     stdout:
