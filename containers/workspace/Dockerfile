@@ -98,7 +98,7 @@ RUN update-alternatives --remove-all php && \
     update-alternatives --remove-all phar.phar
 
 ADD php/switch-php-version /usr/src/magicLAMP/switch-php-version
-ADD php/5.6 php/7.0 php/7.1 php/7.2 php/7.3 php/7.4 /usr/bin/
+ADD php/5.6 php/7.0 php/7.1 php/7.2 php/7.3 php/7.4 php/8.0 /usr/bin/
 
 # Make PHP version switchers executable
 RUN chmod +x /usr/bin/5.6 && \
@@ -106,7 +106,8 @@ RUN chmod +x /usr/bin/5.6 && \
     chmod +x /usr/bin/7.1 && \
     chmod +x /usr/bin/7.2 && \
     chmod +x /usr/bin/7.3 && \
-    chmod +x /usr/bin/7.4
+    chmod +x /usr/bin/7.4 && \
+    chmod +x /usr/bin/8.0
 
 # Symlink PHP versons into a directory so they can be used in PATH
 RUN mkdir -p /opt/magicLAMP/php/5.6 && \
