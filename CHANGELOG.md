@@ -8,6 +8,8 @@
 
 - Enable imagick extension in PHP 8 container
 - Fix broken links in documentation
+- Bump Stripe CLI version to v1.5.5
+- Bump Digital Ocean CLI version to v1.52.0
 
 ## v1.4.0
 
