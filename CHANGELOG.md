@@ -2,6 +2,13 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.4.1
+
+### Fixed
+
+- Enable imagick extension in PHP 8 container
+- Fix broken links in documentation
+
 ## v1.4.0
 
 ### New
