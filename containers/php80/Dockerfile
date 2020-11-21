@@ -24,7 +24,8 @@ RUN docker-php-source extract && \
     phpize && \
     ./configure && \
     make install && \
-    docker-php-source delete
+    docker-php-source delete && \
+    docker-php-ext-enable imagick
 
 ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./config/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
