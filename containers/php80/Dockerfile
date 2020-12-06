@@ -1,4 +1,4 @@
-FROM php:8.0-rc-fpm
+FROM php:8.0-fpm
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qq wget libgd3 libgd-dev libwebp-dev libpq-dev libmagickwand-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libzip-dev nghttp2 libhiredis-dev libmemcached-dev pkg-config zlib1g-dev && \

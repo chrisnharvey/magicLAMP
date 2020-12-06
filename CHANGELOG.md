@@ -6,6 +6,7 @@
 
 ### Fixed
 
+- Stable release of PHP 8.0 now included
 - Enable imagick extension in PHP 8 container
 - Fix broken links in documentation
 - Bump Stripe CLI version to v1.5.5
