@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.4.1
+
+### Fixed
+
+- Stable release of PHP 8.0 now included
+- Enable imagick extension in PHP 8 container
+- Fix broken links in documentation
+- Bump Stripe CLI version to v1.5.5
+- Bump Digital Ocean CLI version to v1.52.0
+
 ## v1.4.0
 
 ### New
