@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v.1.5.1
+
+### Fixed
+
+- Update docs to include endpoint for S3 server
+
 # v1.5.0
 
 ### New
