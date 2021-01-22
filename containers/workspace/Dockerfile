@@ -78,16 +78,16 @@ RUN curl --location "https://github.com/weaveworks/eksctl/releases/download/late
     mv /tmp/eksctl /usr/local/bin
 
 # Install doctl
-RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.52.0/doctl-1.52.0-linux-amd64.tar.gz | tar xz -C /tmp && \
+RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.55.0/doctl-1.55.0-linux-amd64.tar.gz | tar xz -C /tmp && \
     mv /tmp/doctl /usr/local/bin
 
 # Install Stripe CLI
-RUN curl --location "https://github.com/stripe/stripe-cli/releases/download/v1.5.5/stripe_1.5.5_linux_x86_64.tar.gz" | tar xz -C /tmp && \
+RUN curl --location "https://github.com/stripe/stripe-cli/releases/download/v1.5.8/stripe_1.5.8_linux_x86_64.tar.gz" | tar xz -C /tmp && \
     mv /tmp/stripe /usr/local/bin/stripe && \
     chmod +x /usr/local/bin/stripe
 
 # Install nvm and LTS NodeJS
-RUN runuser -l magicLAMP -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh" && \
+RUN runuser -l magicLAMP -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh" && \
     runuser -l magicLAMP -c "source /home/magicLAMP/.zshrc && nvm install --lts"
 
 # Remove any default PHP versions
