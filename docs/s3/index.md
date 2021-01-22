@@ -5,6 +5,13 @@ magicLAMP includes a local S3-compatible object storage server powered by
 will store files in S3 as it allows you to use the same APIs that you
 will use in production as well as support for pre-signed URLs.
 
+**S3 Endpoint:** s3.localhost
+
+## Accessing the GUI
+
+MinIO has a built-in GUI which you can access at `s3.localhost`. Here you
+can create buckets, manage and upload files and more.
+
 ## Authentication
 
 You can configure the access key and secret used to access the S3 server in the
