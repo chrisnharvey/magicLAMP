@@ -115,6 +115,8 @@ services:
   dns_internal:
     image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION:-1.4}
 
+    dns: ${DNS_RESOLVER:-1.1.1.1}
+
     networks:
       app_net:
         ipv4_address: 10.0.10.2
@@ -126,6 +128,8 @@ services:
       - 127.0.0.1:53:53/udp
 
     restart: unless-stopped
+
+    dns: ${DNS_RESOLVER:-1.1.1.1}
 
 
   redis:
