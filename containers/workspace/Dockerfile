@@ -78,7 +78,7 @@ RUN curl --location "https://github.com/weaveworks/eksctl/releases/download/late
     mv /tmp/eksctl /usr/local/bin
 
 # Install doctl
-RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.52.0/doctl-1.52.0-linux-amd64.tar.gz | tar xz -C /tmp && \
+RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.55.0/doctl-1.55.0-linux-amd64.tar.gz | tar xz -C /tmp && \
     mv /tmp/doctl /usr/local/bin
 
 # Install Stripe CLI
