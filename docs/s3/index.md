@@ -1,7 +1,9 @@
 # S3
 
 magicLAMP includes a local S3-compatible object storage server powered by
-[MinIO](https://min.io/).
+[MinIO](https://min.io/). This is especially useful if your application
+will store files in S3 as it allows you to use the same APIs that you
+will use in production as well as support for pre-signed URLs.
 
 ## Authentication
 
