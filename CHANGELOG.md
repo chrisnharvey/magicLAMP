@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.5.2
+
+### Fixed
+
+- Swoole version is now forced at 4.5.11 in PHP 7.1
+
 # v.1.5.1
 
 ### Fixed

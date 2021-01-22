@@ -7,7 +7,7 @@ RUN apt-get update && \
     docker-php-ext-install -j$(nproc) gd && \
     docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql zip bcmath && \
     pecl install imagick && \
-    pecl install swoole && \
+    pecl install swoole-4.5.11 && \
     pecl install memcached && \
     docker-php-ext-enable imagick opcache swoole memcached
 
