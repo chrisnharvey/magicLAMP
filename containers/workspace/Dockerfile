@@ -173,7 +173,7 @@ RUN 5.6 pecl install -f swoole-2.0.10 && \
     7.0 pecl install -f swoole-4.3.6 && \
     7.0 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.0/cli/conf.d/50-swoole.ini && \
-    7.1 pecl install -f swoole && \
+    7.1 pecl install -f swoole-4.5.11 && \
     7.1 pecl uninstall -r swoole && \
     echo "extension=swoole.so" > /etc/php/7.1/cli/conf.d/50-swoole.ini && \
     7.2 pecl install -f swoole && \
