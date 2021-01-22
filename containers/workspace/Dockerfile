@@ -82,7 +82,7 @@ RUN curl --location https://github.com/digitalocean/doctl/releases/download/v1.5
     mv /tmp/doctl /usr/local/bin
 
 # Install Stripe CLI
-RUN curl --location "https://github.com/stripe/stripe-cli/releases/download/v1.5.5/stripe_1.5.5_linux_x86_64.tar.gz" | tar xz -C /tmp && \
+RUN curl --location "https://github.com/stripe/stripe-cli/releases/download/v1.5.8/stripe_1.5.8_linux_x86_64.tar.gz" | tar xz -C /tmp && \
     mv /tmp/stripe /usr/local/bin/stripe && \
     chmod +x /usr/local/bin/stripe
 
