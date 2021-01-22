@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -17,7 +17,7 @@ services:
         ipv4_address: 10.0.10.10
 
   postgres:
-    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 5432:5432
@@ -30,7 +30,7 @@ services:
         ipv4_address: 10.0.10.15
 
   pgadmin:
-    image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-pgadmin:${MAGICLAMP_VERSION:-1.5}
 
     networks:
       app_net:
@@ -49,7 +49,7 @@ services:
       - dns_internal
 
   mysql:
-    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
       - mysql_data:/var/lib/mysql
@@ -67,7 +67,7 @@ services:
         ipv4_address: 10.0.10.20
 
   phpmyadmin:
-    image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-phpmyadmin:${MAGICLAMP_VERSION:-1.5}
 
     networks:
       app_net:
@@ -80,7 +80,7 @@ services:
       - MYSQL_ROOT_PASSWORD=gg
 
   mailcatcher:
-    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 1025:1025
@@ -90,7 +90,7 @@ services:
         ipv4_address: 10.0.10.25
 
   workspace:
-    image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
       - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -113,7 +113,7 @@ services:
         ipv4_address: 10.0.10.5
 
   dns_internal:
-    image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-dns-internal:${MAGICLAMP_VERSION:-1.5}
 
     dns: ${DNS_RESOLVER:-1.1.1.1}
 
@@ -122,7 +122,7 @@ services:
         ipv4_address: 10.0.10.2
 
   dns:
-    image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-dns:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 127.0.0.1:53:53/udp
@@ -133,7 +133,7 @@ services:
 
 
   redis:
-    image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-redis:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 6379:6379
@@ -143,7 +143,7 @@ services:
         ipv4_address: 10.0.10.21
 
   memcached:
-    image: chrisnharvey/magiclamp-memcached:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-memcached:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 11211:11211
@@ -153,7 +153,7 @@ services:
         ipv4_address: 10.0.10.11
 
   elasticsearch:
-    image: chrisnharvey/magiclamp-elasticsearch:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-elasticsearch:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 9200:9200
@@ -167,7 +167,7 @@ services:
         ipv4_address: 10.0.10.92
 
   rabbitmq:
-    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.5}
 
     hostname: magiclamp-rabbitmq
 
@@ -187,7 +187,7 @@ services:
         ipv4_address: 10.0.10.67
 
   s3:
-    image: chrisnharvey/magiclamp-s3:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-s3:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 9000:9000
@@ -204,7 +204,7 @@ services:
         ipv4_address: 10.0.10.68
 
   selenium_chrome:
-    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 4444:4444
@@ -223,7 +223,7 @@ services:
       - dns_internal
 
   selenium_firefox:
-    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.4}
+    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.5}
 
     ports:
       - 5555:4444
@@ -242,7 +242,7 @@ services:
       - dns_internal
 
   php56:
-      image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -261,7 +261,7 @@ services:
         - dns_internal
 
   php70:
-      image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -280,7 +280,7 @@ services:
         - dns_internal
 
   php71:
-      image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -299,7 +299,7 @@ services:
         - dns_internal
 
   php72:
-      image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -318,7 +318,7 @@ services:
         - dns_internal
 
   php73:
-      image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -337,7 +337,7 @@ services:
         - dns_internal
 
   php74:
-      image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
@@ -356,7 +356,7 @@ services:
         - dns_internal
 
   php80:
-      image: chrisnharvey/magiclamp-php80:${MAGICLAMP_VERSION:-1.4}
+      image: chrisnharvey/magiclamp-php80:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
         - ${PROJECTS_DIR:-./data/projects}:/projects
