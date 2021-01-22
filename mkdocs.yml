@@ -59,6 +59,8 @@ nav:
 
   - MailCatcher (SMTP): mailcatcher/index.md
 
+  - S3: s3/index.md
+
   - Elasticsearch: elasticsearch/index.md
 
   - RabbitMQ: rabbitmq/index.md
