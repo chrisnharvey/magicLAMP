@@ -182,6 +182,23 @@ services:
       app_net:
         ipv4_address: 10.0.10.67
 
+  s3:
+    image: chrisnharvey/magiclamp-s3:${MAGICLAMP_VERSION:-1.4}
+
+    ports:
+      - 9000:9000
+
+    volumes:
+      - ${S3_DATA_DIR:-./data/s3}:/data
+
+    environment:
+      - MINIO_ACCESS_KEY=${S3_ACCESS_KEY:-magiclamp}
+      - MINIO_SECRET_KEY=${S3_SECRET_KEY:-magiclamp}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.68
+
   selenium_chrome:
     image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.4}
 
