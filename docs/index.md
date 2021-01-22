@@ -19,6 +19,7 @@
 - 💾 Pre-configured databases that are ready to use - **MySQL** - **PostgreSQL** - **Redis** - **Memcached**
 - 📋 Pre-configured database management tools - **pgAdmin 4** - **phpMyAdmin** - **redis-cli**
 - ✉️ Catch all **SMTP mail server with webmail** for testing emails locally
+- 📁 Built-in **S3 server** to test S3 storage locally
 - 🔨 **Powerful workspace** with pre-installed dev tools
 - 👀 **Selenium** for Firefox and Chrome with VNC access
 - 🙏 Switchable versions of **NodeJS and npm** with **nvm**
