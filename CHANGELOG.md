@@ -2,6 +2,20 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.5.0
+
+### New
+
+- S3-compatible object storage server (MinIO)
+- DNS resolver can now be changed in `.env`
+
+### Improved
+
+- Update Stripe CLI to v1.5.8
+- Update Digital Ocean CLI to v1.55.0
+- Update nvm to v0.37.2
+- `.env` file now contains comments to explain what each variable is for
+
 # v1.4.1
 
 ### Fixed
