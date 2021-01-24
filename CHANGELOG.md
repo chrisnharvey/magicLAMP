@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.5.3
+
+### Improved
+
+- Added note to documentation about S3 path configuration
+
 # v1.5.2
 
 ### Fixed
