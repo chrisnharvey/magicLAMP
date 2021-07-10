@@ -4,3 +4,4 @@ data/*
 !data/.gitkeep
 containers/custom/*
 !containers/custom/.gitkeep
+.DS_Store
