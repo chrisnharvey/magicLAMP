@@ -5,8 +5,8 @@ services:
     image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
-      - ${PROJECTS_DIR:-./data/projects}:/projects
-      - ./data/ca:/ca
+      - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
+      - ./data/ca:/ca:rw${VOLUME_FLAGS}
 
     ports:
       - 80:80
@@ -20,7 +20,7 @@ services:
     image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
-      - pg_data:/var/lib/postgresql/data/pgdata
+      - pg_data:/var/lib/postgresql/data/pgdata:rw${VOLUME_FLAGS}
 
     ports:
       - 5432:5432
@@ -40,7 +40,7 @@ services:
         ipv4_address: 10.0.10.16
 
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin:rw${VOLUME_FLAGS}
 
     environment:
       - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL:-magiclamp@magiclamp.app}"
@@ -55,8 +55,8 @@ services:
     image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
-      - mysql_data:/var/lib/mysql
-    
+      - mysql_data:/var/lib/mysql:rw${VOLUME_FLAGS}
+
     command: --default-authentication-plugin=mysql_native_password
 
     environment:
@@ -96,11 +96,11 @@ services:
     image: chrisnharvey/magiclamp-workspace:${MAGICLAMP_VERSION:-1.5}
 
     volumes:
-      - ${PROJECTS_DIR:-./data/projects}:/projects
-      - ${SSH_DIR:-./data/ssh}:/home/magicLAMP/.ssh
-      - home_dir:/home/magicLAMP
+      - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
+      - ${SSH_DIR:-./data/ssh}:/home/magicLAMP/.ssh:rw${VOLUME_FLAGS}
+      - home_dir:/home/magicLAMP:rw${VOLUME_FLAGS}
       - /var/run/docker.sock:/var/run/docker.sock
-      - .:/magicLAMP
+      - .:/magicLAMP:rw${VOLUME_FLAGS}
 
     tty: true
 
@@ -175,7 +175,7 @@ services:
     hostname: magiclamp-rabbitmq
 
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_data:/var/lib/rabbitmq:rw${VOLUME_FLAGS}
 
     ports:
       - 5672:5672
@@ -196,7 +196,7 @@ services:
       - 9000:9000
 
     volumes:
-      - ${S3_DATA_DIR:-./data/s3}:/data
+      - ${S3_DATA_DIR:-./data/s3}:/data:rw${VOLUME_FLAGS}
 
     environment:
       - MINIO_ACCESS_KEY=${S3_ACCESS_KEY:-magiclamp}
@@ -214,7 +214,7 @@ services:
       - 4449:5900
 
     volumes:
-      - /dev/shm:/dev/shm
+      - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
 
     networks:
       app_net:
@@ -233,7 +233,7 @@ services:
       - 5559:5900
 
     volumes:
-      - /dev/shm:/dev/shm
+      - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
 
     networks:
       app_net:
@@ -248,7 +248,7 @@ services:
       image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -267,7 +267,7 @@ services:
       image: chrisnharvey/magiclamp-php70:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -286,7 +286,7 @@ services:
       image: chrisnharvey/magiclamp-php71:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -305,7 +305,7 @@ services:
       image: chrisnharvey/magiclamp-php72:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -324,7 +324,7 @@ services:
       image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -343,7 +343,7 @@ services:
       image: chrisnharvey/magiclamp-php74:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -362,7 +362,7 @@ services:
       image: chrisnharvey/magiclamp-php80:${MAGICLAMP_VERSION:-1.5}
 
       volumes:
-        - ${PROJECTS_DIR:-./data/projects}:/projects
+        - ${PROJECTS_DIR:-./data/projects}:/projects:rw${VOLUME_FLAGS}
 
       working_dir: /projects
 
@@ -395,3 +395,7 @@ volumes:
   rabbitmq_data:
 
   home_dir:
+
+  mongo_dir:
+
+  pg_data:
