@@ -5,3 +5,5 @@ data/*
 containers/custom/*
 !containers/custom/.gitkeep
 .DS_Store
+daemon.log
+daemon.pid

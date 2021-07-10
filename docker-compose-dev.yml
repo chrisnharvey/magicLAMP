@@ -1,0 +1,43 @@
+version: '2.1'
+
+services:
+  workspace:
+    volumes:
+      - projects-sync:/projects:nocopy
+  nginx:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php56:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php70:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php71:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php72:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php73:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php74:
+    volumes:
+      - projects-sync:/projects:nocopy
+  php80:
+    volumes:
+      - projects-sync:/projects:nocopy
+  mysql:
+    image: mariadb:latest
+    volumes:
+      - mysql-data-sync:/var/lib/mysql:nocopy
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD:
+
+volumes:
+  projects-sync:
+    external: true
+  mysql-data-sync:
+    external: true

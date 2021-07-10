@@ -1,0 +1,45 @@
+version: '2'
+
+options:
+  compose-file-path: 'docker-compose.yml'
+  compose-dev-file-path: 'docker-compose-dev.yml'
+
+syncs:
+
+  projects-sync:
+    src: '${PROJECTS_DIR}/'
+
+    sync_userid: '${USER_UID}'
+
+    # 2do: change the volume flags var and usage to allow use here.
+    host_disk_mount_mode: 'cached'
+
+    sync_excludes:
+      - '.DS_Store'
+      - '.gitignore'
+      - '.git/'
+      - '.vscode/'
+
+    # OS aware sync strategy:
+    # - default Dynamic detection, depends on the OS.
+    # - 'native_osx'  Native docker-for-mac OSFS based sync (OSX only)
+    # - 'unison'  Unison based sync (Linux, OSX, Windows)
+    # - 'rsync' Rsync based sync (OSX only)
+    # - 'native_linux'  No sync, native mount (Linux only)
+    sync_strategy: 'native_osx'
+
+  mysql-data-sync:
+    src: '/var/lib/mysql'
+
+    sync_userid: '${USER_UID}'
+
+    # 2do: change the volume flags var and usage to allow use here.
+    host_disk_mount_mode: 'cached'
+
+    sync_excludes:
+      - '.DS_Store'
+      - '.gitignore'
+      - '.git/'
+      - '.vscode/'
+
+    sync_strategy: 'native_osx'
