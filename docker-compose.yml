@@ -169,25 +169,25 @@ services:
       app_net:
         ipv4_address: 10.0.10.92
 
-#   rabbitmq:
-#     image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.5}
+  rabbitmq:
+    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.5}
 
-#     hostname: magiclamp-rabbitmq
+    hostname: magiclamp-rabbitmq
 
-#     volumes:
-#       - rabbitmq_data:/var/lib/rabbitmq:rw${VOLUME_FLAGS}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq:rw${VOLUME_FLAGS}
 
-#     ports:
-#       - 5672:5672
-#       - 15672:15672
+    ports:
+      - 5672:5672
+      - 15672:15672
 
-#     environment:
-#       - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME:-magiclamp}
-#       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-magicLAMP}
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME:-magiclamp}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-magicLAMP}
 
-#     networks:
-#       app_net:
-#         ipv4_address: 10.0.10.67
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.67
 
   s3:
     image: chrisnharvey/magiclamp-s3:${MAGICLAMP_VERSION:-1.5}
@@ -206,43 +206,43 @@ services:
       app_net:
         ipv4_address: 10.0.10.68
 
-#   selenium_chrome:
-#     image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.5}
+  selenium_chrome:
+    image: chrisnharvey/magiclamp-selenium-chrome:${MAGICLAMP_VERSION:-1.5}
 
-#     ports:
-#       - 4444:4444
-#       - 4449:5900
+    ports:
+      - 4444:4444
+      - 4449:5900
 
-#     volumes:
-#       - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
+    volumes:
+      - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
 
-#     networks:
-#       app_net:
-#         ipv4_address: 10.0.10.30
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.30
 
-#     dns: 10.0.10.2
+    dns: 10.0.10.2
 
-#     depends_on:
-#       - dns_internal
+    depends_on:
+      - dns_internal
 
-#   selenium_firefox:
-#     image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.5}
+  selenium_firefox:
+    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.5}
 
-#     ports:
-#       - 5555:4444
-#       - 5559:5900
+    ports:
+      - 5555:4444
+      - 5559:5900
 
-#     volumes:
-#       - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
+    volumes:
+      - /dev/shm:/dev/shm:rw${VOLUME_FLAGS}
 
-#     networks:
-#       app_net:
-#         ipv4_address: 10.0.10.31
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.31
 
-#     dns: 10.0.10.2
+    dns: 10.0.10.2
 
-#     depends_on:
-#       - dns_internal
+    depends_on:
+      - dns_internal
 
   php56:
       image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.5}
@@ -392,7 +392,7 @@ volumes:
 
   pgadmin_data:
 
-#   rabbitmq_data:
+  rabbitmq_data:
 
   home_dir:
 
