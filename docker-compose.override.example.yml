@@ -9,3 +9,15 @@ services:
     # Expose additional ports
     ports:
       - 3000:3000
+    expose:
+      - "3000"
+
+  mysql:
+    image: mariadb:latest
+
+    volumes:
+      - mysql_data:/var/lib/mysql:rw${VOLUME_FLAGS}
+
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD:
