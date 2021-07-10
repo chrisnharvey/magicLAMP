@@ -396,6 +396,4 @@ volumes:
 
   home_dir:
 
-  mongo_dir:
-
   pg_data:
