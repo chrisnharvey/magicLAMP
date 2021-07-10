@@ -19,6 +19,9 @@ services:
   postgres:
     image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.5}
 
+    volumes:
+      - pg_data:/var/lib/postgresql/data/pgdata
+
     ports:
       - 5432:5432
 
