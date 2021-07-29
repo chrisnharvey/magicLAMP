@@ -33,8 +33,7 @@ syncs:
 
     sync_userid: '${USER_UID}'
 
-    # 2do: change the volume flags var and usage to allow use here.
-    host_disk_mount_mode: 'cached'
+    host_disk_mount_mode: ${HOST_DISK_MOUNT_MODE}
 
     sync_excludes:
       - '.DS_Store'
