@@ -23,5 +23,5 @@ Start docker-sync
 Start magicLAMP
 
     ```
-    docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d
+    docker-compose -f docker-compose.yml -f docker-compose.docker-sync.yml up -d
     ```
