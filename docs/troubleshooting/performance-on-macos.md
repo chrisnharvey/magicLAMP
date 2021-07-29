@@ -1,4 +1,4 @@
-# Performance on OSX
+# Performance on macOS
 
 ## Adding volume flags
 
