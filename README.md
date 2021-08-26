@@ -24,6 +24,7 @@ magicLAMP is a full PHP development environment that works like magic! ✨
 - 🙏 Switchable versions of **NodeJS and npm** with **nvm**
 - 🔍 Built-in **ElasticSearch**
 - 🐇 Built-in **RabbitMQ** with management GUI
+- 🪶 Built-in **Apache Kafka** broker with web GUI
 - ✅ **So much more**
 
 ## Getting Started
