@@ -2,6 +2,22 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.6.0
+
+### New
+
+- Added Kafka broker with Zookeeper and Web UI (AKHQ)
+- rdkafka extension is now installed on PHP versions >= 7.1
+
+### Improved
+
+- imagick is now installed from pecl in PHP 8.0
+- Bumped PHP minor versions
+
+### Fixed
+
+- Fixed issue with SSL certificates showing as invalid (#40)
+
 # v1.5.3
 
 ### Improved
