@@ -241,6 +241,44 @@ services:
     depends_on:
       - dns_internal
 
+  zookeeper:
+    image: chrisnharvey/magiclamp-zookeeper:${MAGICLAMP_VERSION:-1.5}
+
+    ports:
+      - 2181:2181
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.41
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
+
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+
+  kafka:
+    image: chrisnharvey/magiclamp-kafka:${MAGICLAMP_VERSION:-1.5}
+
+    ports:
+      - 9092:9092
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.40
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
+      - zookeeper
+
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper.localhost:2181
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+
   php56:
       image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.5}
 
