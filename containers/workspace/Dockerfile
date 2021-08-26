@@ -18,7 +18,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 && 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq --no-install-suggests --no-install-recommends \
     # General tools
     curl gh putty-tools unzip bzip2 wget git git-lfs ssh sudo nano vim zsh apt-transport-https ca-certificates gnupg-agent build-essential \
-    libhiredis-dev nghttp2 libmemcached-dev pkg-config zlib1g-dev docker-ce-cli docker-compose redis-tools iputils-ping screen less groff \
+    libhiredis-dev nghttp2 libmemcached-dev pkg-config zlib1g-dev docker-ce-cli docker-compose redis-tools iputils-ping screen less groff librdkafka-dev \
     # DB tools
     mysql-client sqlite \
     # Python
@@ -211,6 +211,24 @@ RUN 5.6 pecl install -f memcached-2.2.0 && \
     8.0 pecl install -f memcached && \
     8.0 pecl uninstall -r memcached && \
     echo "extension=memcached.so" > /etc/php/8.0/cli/conf.d/50-memcached.ini
+
+# Install rdkafka for each PHP version (>= 7.1)
+RUN 7.1 pecl install -f rdkafka && \
+    7.1 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/7.1/cli/conf.d/50-rdkafka.ini && \
+    7.2 pecl install -f rdkafka && \
+    7.2 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/7.2/cli/conf.d/50-rdkafka.ini && \
+    7.3 pecl install -f rdkafka && \
+    7.3 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/7.3/cli/conf.d/50-rdkafka.ini && \
+    7.4 pecl install -f rdkafka && \
+    7.4 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/7.4/cli/conf.d/50-rdkafka.ini && \
+    8.0 pecl install -f rdkafka && \
+    8.0 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/8.0/cli/conf.d/50-rdkafka.ini
+
 
 # Install composer
 ADD install-composer.sh /root/install-composer.sh

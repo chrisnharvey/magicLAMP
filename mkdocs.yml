@@ -61,6 +61,8 @@ nav:
 
   - S3: s3/index.md
 
+  - Kafka: kafka/index.md
+
   - Elasticsearch: elasticsearch/index.md
 
   - RabbitMQ: rabbitmq/index.md
