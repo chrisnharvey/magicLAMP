@@ -10,7 +10,7 @@ RUN apt-get update && \
     pecl install swoole-4.5.11 && \
     pecl install memcached && \
     pecl install rdkafka && \
-    pecl install xdebug && \
+    pecl install xdebug-2.9.8 && \
     docker-php-ext-enable imagick opcache swoole memcached rdkafka xdebug
 
 ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
