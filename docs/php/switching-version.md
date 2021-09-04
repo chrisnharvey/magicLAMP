@@ -17,6 +17,7 @@ to the ```public/``` directory in your project folder.
 | projectname.72.localhost | 7.2        | PROJECTS_DIR/projectname/public |
 | projectname.73.localhost | 7.3        | PROJECTS_DIR/projectname/public |
 | projectname.74.localhost | 7.4        | PROJECTS_DIR/projectname/public |
+| projectname.80.localhost | 8.0        | PROJECTS_DIR/projectname/public |
 
 ## Switching PHP version in the workspace
 

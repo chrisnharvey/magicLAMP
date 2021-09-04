@@ -30,10 +30,20 @@ class OverrideCommand extends DockerCommand
      */
     public function handle()
     {
+        $origHash = hash_file('sha256', $this->docker->getMagiclampPath('docker-compose.override.yml'));
+
         $process = new Process([getenv('EDITOR') ?: 'nano', $this->docker->getMagiclampPath('docker-compose.override.yml')]);
         $process->setTty(true);
 
         $process->mustRun();
+
+        $newHash = hash_file('sha256', $this->docker->getMagiclampPath('docker-compose.override.yml'));
+
+        if ($origHash == $newHash) {
+            $this->info("\n File unchanged.");
+
+            exit(0);
+        }
 
         $this->info("\n File updated.");
 

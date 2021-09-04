@@ -2,6 +2,77 @@
 
 ## [Unreleased](https://github.com/chrisnharvey/magicLAMP/compare/master...develop)
 
+# v1.6.0
+
+### New
+
+- Added Kafka broker with Zookeeper and Web UI (AKHQ)
+- rdkafka extension is now installed on PHP versions >= 7.1
+
+### Improved
+
+- imagick is now installed from pecl in PHP 8.0
+- Bumped PHP minor versions
+
+### Fixed
+
+- Fixed issue with SSL certificates showing as invalid (#40)
+
+# v1.5.3
+
+### Improved
+
+- Added note to documentation about S3 path configuration
+
+# v1.5.2
+
+### Fixed
+
+- Swoole version is now forced at 4.5.11 in PHP 7.1
+
+# v.1.5.1
+
+### Fixed
+
+- Update docs to include endpoint for S3 server
+
+# v1.5.0
+
+### New
+
+- S3-compatible object storage server (MinIO)
+- DNS resolver can now be changed in `.env`
+
+### Improved
+
+- Update Stripe CLI to v1.5.8
+- Update Digital Ocean CLI to v1.55.0
+- Update nvm to v0.37.2
+- `.env` file now contains comments to explain what each variable is for
+
+# v1.4.1
+
+### Fixed
+
+- Stable release of PHP 8.0 now included
+- Enable imagick extension in PHP 8 container
+- Fix broken links in documentation
+- Bump Stripe CLI version to v1.5.5
+- Bump Digital Ocean CLI version to v1.52.0
+
+## v1.4.0
+
+### New
+
+- PHP 8.0 RC3
+- Composer 2
+
+## v1.3.9
+
+### Fixed
+
+- Laravel 8 support
+
 ## v1.3.8
 
 ### Fixed
