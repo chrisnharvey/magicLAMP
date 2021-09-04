@@ -1,0 +1,18 @@
+akhq:
+  server:
+    access-log: # Access log configuration (optional)
+      enabled: true # true by default
+      name: org.akhq.log.access # Logger name
+      format: "[Date: {}] [Duration: {} ms] [Url: {} {}] [Status: {}] [Ip: {}] [User: {}]" # Logger format
+
+  # default kafka properties for each clients, available for admin / producer / consumer (optional)
+  clients-defaults:
+    consumer:
+      properties:
+        isolation.level: read_committed
+
+  # list of kafka cluster available for akhq
+  connections:
+    magiclamp: # url friendly name for the cluster (letter, number, _, -, ... dot are not allowed here)
+      properties: # standard kafka properties (optional)
+        bootstrap.servers: "kafka.localhost:9092"

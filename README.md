@@ -12,7 +12,7 @@
 
 magicLAMP is a full PHP development environment that works like magic! ✨
 
-- 🤩 Run **multiple PHP versions** (5.6 - 7.4) at the same time (no more restarting, or rebuilding)
+- 🤩 Run **multiple PHP versions** (5.6 - 8.0) at the same time (no more restarting, or rebuilding)
 - 🙌 **Automatic DNS resolution** (bye-bye `hosts` file)
 - 🚀 **Automatic Virtual Host creation** (forget `apache.conf` or `nginx.conf`)
 - 🔒 **Automatic and valid SSL certificates** (mixed content errors are a thing of the past)
@@ -24,6 +24,7 @@ magicLAMP is a full PHP development environment that works like magic! ✨
 - 🙏 Switchable versions of **NodeJS and npm** with **nvm**
 - 🔍 Built-in **ElasticSearch**
 - 🐇 Built-in **RabbitMQ** with management GUI
+- 🪶 Built-in **Apache Kafka** broker with web GUI
 - ✅ **So much more**
 
 ## Getting Started
