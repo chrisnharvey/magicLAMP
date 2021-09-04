@@ -12,7 +12,8 @@ RUN apt-get update && \
     pecl install swoole && \
     pecl install memcached && \
     pecl install rdkafka && \
-    docker-php-ext-enable imagick opcache sodium swoole memcached rdkafka
+    pecl install xdebug && \
+    docker-php-ext-enable imagick opcache sodium swoole memcached rdkafka xdebug
 
 ADD ./config/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./config/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-magicLAMP.conf
