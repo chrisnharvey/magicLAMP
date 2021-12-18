@@ -35,8 +35,9 @@ nav:
 
   - Getting Started:
       - getting-started/installing-magiclamp.md
-      - getting-started/updating-magiclamp.md
       - getting-started/quick-start.md
+      - getting-started/custom-stack.md
+      - getting-started/updating-magiclamp.md
 
   - Workspace:
     - Introduction: workspace/index.md

@@ -36,7 +36,7 @@ Run the following commands to pull down the containers and start them:
 
 ```
 docker-compose pull
-docker-compose up -d
+./stack.sh
 ```
 
 ### Step 4 (optional)

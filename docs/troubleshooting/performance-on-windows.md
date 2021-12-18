@@ -69,7 +69,7 @@ You must now run all `docker` and `docker-compose` commands inside of Ubuntu 20.
 
 ```
 docker-compose down
-docker-compose up -d
+./stack.sh
 ```
 
 ## Working on projects stored in WSL2
