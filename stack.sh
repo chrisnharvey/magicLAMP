@@ -9,7 +9,7 @@ STACKS=($STACK_WEBSERVER, $STACK_PHP $STACK_DATABASES $STACK_MOCKS $STACK_GUIS $
 for stack in ${STACKS[@]}; do
     for container in ${stack//,/ }
     do
-        composedStack="$composedStack -f ./compose/docker-compose.$1.yml"
+        composedStack="$composedStack -f ./compose/docker-compose.$container.yml"
     done
 done
 
