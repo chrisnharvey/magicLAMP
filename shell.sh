@@ -8,6 +8,6 @@ REVIVE="$DIR/.revive"
 
 if [ -f "$REVIVE" ]; then
     rm -f "$REVIVE"
-    docker-compose up -d
+    ./stack.sh -d
     ./shell.sh
 fi
