@@ -1,0 +1,19 @@
+services:
+  php56:
+    image: chrisnharvey/magiclamp-php56:${MAGICLAMP_VERSION:-1.6}
+
+    volumes:
+      - ${PROJECTS_DIR:-./data/projects}:/projects
+
+    working_dir: /projects
+
+    user: ${USER_UID}:${USER_GID}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.56
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal

@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: chrisnharvey/magiclamp-postgres:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - ${POSTGRES_PORT:-5432}:${POSTGRES_PORT:-5432}
+
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.15

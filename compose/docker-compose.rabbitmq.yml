@@ -1,0 +1,23 @@
+services:
+  rabbitmq:
+    image: chrisnharvey/magiclamp-rabbitmq:${MAGICLAMP_VERSION:-1.6}
+
+    hostname: magiclamp-rabbitmq
+
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME:-magiclamp}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-magicLAMP}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.67
+
+volumes:
+  rabbitmq_data:

@@ -1,0 +1,18 @@
+services:
+  zookeeper:
+    image: chrisnharvey/magiclamp-zookeeper:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - 2181:2181
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.41
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
+
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"

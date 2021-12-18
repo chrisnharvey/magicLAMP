@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: chrisnharvey/magiclamp-mysql:${MAGICLAMP_VERSION:-1.6}
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    command: --default-authentication-plugin=${MYSQL_DEFAULT_AUTHENTICATION_PLUGIN:-mysql_native_password}
+
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-}
+
+    ports:
+      - ${MYSQL_PORT:-3306}:${MYSQL_PORT:-3306}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.20
+
+volumes:
+  mysql_data:

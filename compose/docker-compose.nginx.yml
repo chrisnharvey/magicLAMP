@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: chrisnharvey/magiclamp-nginx:${MAGICLAMP_VERSION:-1.6}
+
+    volumes:
+      - ${PROJECTS_DIR:-./data/projects}:/projects
+      - ./data/ca:/ca
+
+    ports:
+      - 80:80
+      - 443:443
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.10

@@ -1,0 +1,19 @@
+services:
+  selenium_firefox:
+    image: chrisnharvey/magiclamp-selenium-firefox:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - 5555:4444
+      - 5559:5900
+
+    volumes:
+      - /dev/shm:/dev/shm
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.31
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal

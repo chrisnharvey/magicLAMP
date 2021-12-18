@@ -1,0 +1,14 @@
+services:
+  elasticsearch:
+    image: chrisnharvey/magiclamp-elasticsearch:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+    environment:
+      - discovery.type=single-node
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.92

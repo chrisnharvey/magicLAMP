@@ -1,0 +1,10 @@
+services:
+  memcached:
+    image: chrisnharvey/magiclamp-memcached:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - 11211:11211
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.11

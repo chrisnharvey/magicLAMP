@@ -1,0 +1,10 @@
+services:
+  mailcatcher:
+    image: chrisnharvey/magiclamp-mailcatcher:${MAGICLAMP_VERSION:-1.6}
+
+    ports:
+      - 1025:1025
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.25

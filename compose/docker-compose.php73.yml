@@ -1,0 +1,19 @@
+services:
+  php73:
+    image: chrisnharvey/magiclamp-php73:${MAGICLAMP_VERSION:-1.6}
+
+    volumes:
+      - ${PROJECTS_DIR:-./data/projects}:/projects
+
+    working_dir: /projects
+
+    user: ${USER_UID}:${USER_GID}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.73
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal

@@ -1,0 +1,13 @@
+services:
+  akhq:
+    image: chrisnharvey/magiclamp-akhq:${MAGICLAMP_VERSION:-1.6}
+
+    networks:
+      app_net:
+        ipv4_address: 10.0.10.42
+
+    dns: 10.0.10.2
+
+    depends_on:
+      - dns_internal
+      - kafka
