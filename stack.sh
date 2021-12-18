@@ -4,16 +4,12 @@ export $(egrep -v '^#' .env | xargs)
 
 composedStack="docker-compose -f docker-compose.yml"
 
-applyStack () {
-   composedStack="$composedStack -f ./compose/docker-compose.$1.yml"
-}
-
 STACKS=($STACK_WEBSERVER, $STACK_PHP $STACK_DATABASES $STACK_MOCKS $STACK_GUIS $STACK_ETC)
 
 for stack in ${STACKS[@]}; do
     for container in ${stack//,/ }
     do
-        applyStack $container
+        composedStack="$composedStack -f ./compose/docker-compose.$1.yml"
     done
 done
 
