@@ -33,6 +33,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qq --no-install-suggests --n
     php7.4-cli php7.4-imagick php7.4-bcmath php7.4-sqlite3 php7.4-gd php7.4-mysql php7.4-pgsql php7.4-dev php7.4-zip php7.4-xml php7.4-curl php7.4-mbstring \
     # PHP 8.0
     php8.0-cli php8.0-imagick php8.0-bcmath php8.0-sqlite3 php8.0-gd php8.0-mysql php8.0-pgsql php8.0-dev php8.0-zip php8.0-xml php8.0-curl php8.0-mbstring
+    # PHP 8.1
+    php8.1-cli php8.1-imagick php8.1-bcmath php8.1-sqlite3 php8.1-gd php8.1-mysql php8.1-pgsql php8.1-dev php8.1-zip php8.1-xml php8.1-curl php8.1-mbstring
 
 # Add magicLAMP user
 RUN useradd magicLAMP -m -s /bin/zsh && \
@@ -107,7 +109,8 @@ RUN chmod +x /usr/bin/5.6 && \
     chmod +x /usr/bin/7.2 && \
     chmod +x /usr/bin/7.3 && \
     chmod +x /usr/bin/7.4 && \
-    chmod +x /usr/bin/8.0
+    chmod +x /usr/bin/8.0 && \
+    chmod +x /usr/bin/8.1
 
 # Symlink PHP versons into a directory so they can be used in PATH
 RUN mkdir -p /opt/magicLAMP/php/5.6 && \
@@ -117,6 +120,7 @@ RUN mkdir -p /opt/magicLAMP/php/5.6 && \
     mkdir -p /opt/magicLAMP/php/7.3 && \
     mkdir -p /opt/magicLAMP/php/7.4 && \
     mkdir -p /opt/magicLAMP/php/8.0 && \
+    mkdir -p /opt/magicLAMP/php/8.1 && \
     ln -s /usr/bin/php5.6 /opt/magicLAMP/php/5.6/php && \
     ln -s /usr/bin/phpize5.6 /opt/magicLAMP/php/5.6/phpize && \
     ln -s /usr/bin/phar5.6 /opt/magicLAMP/php/5.6/phar && \
@@ -151,7 +155,12 @@ RUN mkdir -p /opt/magicLAMP/php/5.6 && \
     ln -s /usr/bin/phpize8.0 /opt/magicLAMP/php/8.0/phpize && \
     ln -s /usr/bin/phar8.0 /opt/magicLAMP/php/8.0/phar && \
     ln -s /usr/bin/phar.phar8.0 /opt/magicLAMP/php/8.0/phar.phar && \
-    ln -s /usr/bin/php-config8.0 /opt/magicLAMP/php/8.0/php-config
+    ln -s /usr/bin/php-config8.0 /opt/magicLAMP/php/8.0/php-config && \
+    ln -s /usr/bin/php8.1 /opt/magicLAMP/php/8.1/php && \
+    ln -s /usr/bin/phpize8.1 /opt/magicLAMP/php/8.1/phpize && \
+    ln -s /usr/bin/phar8.1 /opt/magicLAMP/php/8.1/phar && \
+    ln -s /usr/bin/phar.phar8.1 /opt/magicLAMP/php/8.1/phar.phar && \
+    ln -s /usr/bin/php-config8.1 /opt/magicLAMP/php/8.1/php-config
 
 # Install pear/pecl
 RUN wget http://pear.php.net/go-pear.phar && \
@@ -178,7 +187,10 @@ RUN 5.6 pecl install -f swoole-2.0.10 && \
     echo "extension=swoole.so" > /etc/php/7.4/cli/conf.d/50-swoole.ini && \
     8.0 pecl install -f swoole && \
     8.0 pecl uninstall -r swoole && \
-    echo "extension=swoole.so" > /etc/php/8.0/cli/conf.d/50-swoole.ini
+    echo "extension=swoole.so" > /etc/php/8.0/cli/conf.d/50-swoole.ini && \
+    8.1 pecl install -f swoole && \
+    8.1 pecl uninstall -r swoole && \
+    echo "extension=swoole.so" > /etc/php/8.1/cli/conf.d/50-swoole.ini
 
 # Install Memcached for each PHP version
 RUN 5.6 pecl install -f memcached-2.2.0 && \
@@ -201,7 +213,10 @@ RUN 5.6 pecl install -f memcached-2.2.0 && \
     echo "extension=memcached.so" > /etc/php/7.4/cli/conf.d/50-memcached.ini && \
     8.0 pecl install -f memcached && \
     8.0 pecl uninstall -r memcached && \
-    echo "extension=memcached.so" > /etc/php/8.0/cli/conf.d/50-memcached.ini
+    echo "extension=memcached.so" > /etc/php/8.0/cli/conf.d/50-memcached.ini && \
+    8.1 pecl install -f memcached && \
+    8.1 pecl uninstall -r memcached && \
+    echo "extension=memcached.so" > /etc/php/8.1/cli/conf.d/50-memcached.ini
 
 # Install rdkafka for each PHP version (>= 7.1)
 RUN 7.1 pecl install -f rdkafka && \
@@ -218,7 +233,10 @@ RUN 7.1 pecl install -f rdkafka && \
     echo "extension=rdkafka.so" > /etc/php/7.4/cli/conf.d/50-rdkafka.ini && \
     8.0 pecl install -f rdkafka && \
     8.0 pecl uninstall -r rdkafka && \
-    echo "extension=rdkafka.so" > /etc/php/8.0/cli/conf.d/50-rdkafka.ini
+    echo "extension=rdkafka.so" > /etc/php/8.0/cli/conf.d/50-rdkafka.ini && \
+    8.1 pecl install -f rdkafka && \
+    8.1 pecl uninstall -r rdkafka && \
+    echo "extension=rdkafka.so" > /etc/php/8.1/cli/conf.d/50-rdkafka.ini
 
 
 # Install composer
@@ -233,13 +251,15 @@ RUN runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/5.6" && \
     runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.3" && \
     runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/7.4" && \
     runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/8.0" && \
+    runuser -l magicLAMP -c "mkdir -p /opt/magicLAMP/composer/8.1" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/5.6 && 5.6 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.0 && 7.0 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.1 && 7.1 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.2 && 7.2 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.3 && 7.3 composer require laravel/installer psy/psysh:@stable" && \
     runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/7.4 && 7.4 composer require laravel/installer psy/psysh:@stable" && \
-    runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/8.0 && 8.0 composer require laravel/installer psy/psysh:@stable"
+    runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/8.0 && 8.0 composer require laravel/installer psy/psysh:@stable" && \
+    runuser -l magicLAMP -c "cd /opt/magicLAMP/composer/8.0 && 8.1 composer require laravel/installer psy/psysh:@stable"
 
 # Add magicLAMP shell scripts
 ADD magicLAMP.art magicLAMP.sh /usr/src/magicLAMP/

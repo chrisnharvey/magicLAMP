@@ -12,7 +12,7 @@
 
 **magicLAMP is a full PHP development environment that works like magic! ✨**
 
-- 🤩 Run **multiple PHP versions** (5.6 - 8.0) at the same time (no more restarting, or rebuilding)
+- 🤩 Run **multiple PHP versions** (5.6 - 8.1) at the same time (no more restarting, or rebuilding)
 - 🙌 **Automatic DNS resolution** (bye-bye `hosts` file)
 - 🚀 **Automatic Virtual Host creation** (forget `apache.conf` or `nginx.conf`)
 - 🔒 **Automatic and valid SSL certificates** (mixed content errors are a thing of the past)
